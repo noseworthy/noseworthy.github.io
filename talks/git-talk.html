@@ -46,6 +46,436 @@
                         <small>Created by <a href="https://noseworthy.github.io/">Mike Noseworthy</a></small>
                     </p>
                 </section>
+
+                <section>
+                    <section>
+                        <h1>What is git?</h1>
+                    </section>
+                    <section>
+                        <p>git is a distributed revision control system created by Linus Torvalds in April 2005</p>
+                        <img class="fragment" alt="Linus torvalds" src="https://implyingrigged.info/w/images/thumb/a/a8/Torvalds.gif/250px-Torvalds.gif"></img>
+                    </section>
+                    <section>
+                        <h3>History</h3>
+                        <p>For a long while, Linux kernel maintenance was done via tarball patches</p>
+                        <p class="fragment">Linus hated CVS and SVN and didn't see the point of either system</p>
+                    </section>
+                    <section>
+                        <h3>BitKeeper</h3>
+                        <p>In the 1990's <a href="http://www.bitkeeper.com/">BitKeeper</a> was discussed as a solution to the Linux teams source control problems</p>
+                        <p class="fragment">BitKeeper was one of the first distributed revision control systems, and the Linux kernel was it's highest profile Open Source project</p>
+                    </section>
+                    <section>
+                        <h3>Falling Out</h3>
+                        <p>BitKeeper was free for OSS as long as developers didn't work on competing systems</p>
+                        <p class="fragment">BitKeeper's CEO claimed that an OSS developer, Andrew Tridgell reverse-engineered the BitKeeper protocols and violated the license</p>
+                        <p class="fragment">After much drama, the Linux team stopped using BitKeeper</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Development</h1>
+                    </section>
+                    <section>
+                        <h3>Alternatives</h3>
+                        <p>
+                            Linus evaluated Alternatives. They had to be:
+                        </p>
+                        <ul>
+                            <li class="fragment">
+                                Distributed
+                            </li>
+                            <li class="fragment">
+                                Fast
+                            </li>
+                            <li class="fragment">
+                                Consistent
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Alternatives</h3>
+                        <p>
+                            Linus' requirements eliminated all existing systems
+                        </p>
+                        <p class="fragment">
+                            CVS and SVN met none of the requirements
+                        </p>
+                        <p class="fragment">
+                            All other distributed systems were either closed, behind a pay wall, or didn't meet the requirements
+                        </p>
+                    </section>
+                    <section>
+                        <h3>To The Drawing Board!</h3>
+                        <p>
+                            Linus' requirements eliminated all existing systems
+                        </p>
+                        <p class="fragment">
+                            CVS and SVN met none of the requirements
+                        </p>
+                        <p class="fragment">
+                            All other distributed systems were either closed, behind a pay wall, or didn't meet the requirements
+                        </p>
+                    </section>
+                    <section>
+                        <h3>To The Drawing Board!</h3>
+                        <p>
+                            Linus' requirements eliminated all existing systems
+                        </p>
+                        <p class="fragment">
+                            CVS and SVN met none of the requirements
+                        </p>
+                        <p class="fragment">
+                            All other distributed systems were either closed, behind a pay wall, or didn't meet the requirements
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Initial Release</h3>
+                        <p>
+                            Linus went home for the weekend, and early next week released the first version of git on April 7, 2005
+                        </p>
+                        <p class="fragment">
+                            It took Linus about a day to get git "self hosting", i.e., able to commit changes to git using git<sup><a alt="10 Years of Git: An Interview with Git Creator Linus Torvalds" href="http://www.linux.com/news/featured-blogs/185-jennifer-cloer/821541-10-years-of-git-an-interview-with-git-creator-linus-torvalds">*</a></sup>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>The Name</h3>
+                        <p>
+                            Why call it git?
+                        </p>
+                        <p class="fragment">
+                            British slang for "an unpleasant person"
+                        </p>
+                        <p class="fragment">
+                            "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."
+                            <br />
+                            - Linus torvalds
+                        </p>
+                        <p class="fragment">
+                            <img src="https://lwn.net/images/conf/ks-jls-09/linus-win7.jpg"></img>
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Design</h1>
+                    </section>
+                    <section>
+                        <h3>Step One</h3>
+                        <p>
+                            Forget everything you know about CVS and SVN
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Requirements</h3>
+                        <p>
+                            Linus designed git to satisfy the requirements he outlined for a version control system that would be suitable to develop the linux kernel
+                        </p>
+                        <p>
+                            Distributed, Fast, and Consistent
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Distributed</h3>
+                        <p>
+                            Every copy of the repository has a complete history
+                        </p>
+                        <p class=fragment>
+                            git keeps track of other repositories that you can "pull" from and/or "push" to. These are called <em>remotes</em>
+                        </p>
+                        <p class="fragment">
+                            Because of this distributed model, there were no politics around who could commit and when. <strong>Everyone</strong> could commit to the Linux kernel all the time. Even offline!
+                        </p>
+                        <p class="fragment">
+                            git's branching and merge strategy strongly supports non-linear development
+                        </p>
+                        <p class="fragment">
+                            git's intelligent merge strategies rarely result in users having to manually resolve
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Fast</h3>
+                        <p>
+                            There are a number of factors that make git fast, mainly:
+                        </p>
+                        <ul>
+                            <li class="fragment">
+                                Repositories are local, &#8756; most operations don't use the network
+                            </li>
+                            <li class="fragment">
+                                git doesn't track files, it tracks <em>blobs</em>
+                            </li>
+                            <li class="fragment">
+                                Lightweight branches
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Consistent</h3>
+                        <p class="fragment">
+                            Each version of the repo is identified by a SHA-256 hash that depends on the complete history of the project
+                        </p>
+                        <p class="fragment">
+                            Using a cryptographically secure hash algorithm ensures that history can't be modified without git noticing
+                        </p>
+                        <p class="fragment">
+                            git ensures by design that you get back <em>exactly</em> what you committed every time
+                        </p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Common Commands</h1>
+                        <p>
+                            git is built as a toolkit of small c programs stitched together with scripts
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git init</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git init</em>
+                                </dt>
+                                <dd>
+                                    initializes a new repository
+                                </dd>
+                            </dl>
+                        </p>
+                        <p class="fragment">
+                            <br />
+                            Creates a <em>.git</em> directory inside an existing directory
+                        </p>
+                        <p class="fragment">
+                            <em>.git</em> directories store all the configuration and history for the repo
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git config</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git config</em>
+                                </dt>
+                                <dd>
+                                    Configure git options globally or locally
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            First git commands are usually:
+                            <pre><code>$ git config --global user.name "YOUR NAME"</code></pre>
+                            <pre><code>$ git config --global user.email "YOUR EMAIL ADDRESS"</code></pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git branch</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git branch</em>
+                                </dt>
+                                <dd>
+                                    Create, list or delete branches
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            Create a branch:
+                            <pre><code>$ git branch BRANCH_NAME</code></pre>
+                        </p>
+                        <p>
+                            Delete a branch:
+                            <pre><code>$ git branch -d BRANCH_NAME</code></pre>
+                        </p>
+                        <p>
+                            List all branches:
+                            <pre><code>$ git branch</code></pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git checkout</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git checkout</em>
+                                </dt>
+                                <dd>
+                                    Switch between branches
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            Switch to a feature branch:
+                            <pre><code>$ git checkout FEATURE_BRANCH_NAME</code></pre>
+                        </p>
+                        <p>
+                            Switch back to master:
+                            <pre><code>$ git checkout master</code></pre>
+                        </p>
+                        <p>
+                            Discard <em>unstaged</em> changes:
+                            <pre><code>$ git checkout -- path/to/file</code></pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git add</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git add</em>
+                                </dt>
+                                <dd>
+                                    Add file contents to the <em>index</em> or <em>staging</em> area
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            Add a specific file:
+                            <pre><code>$ git add path/to/file</code></pre>
+                        </p>
+                        <p>
+                            Add everything:
+                            <pre><code>$ git add .</code></pre>
+                        </p>
+                        <p>
+                            List all branches:
+                            <pre><code>$ git branch</code></pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git clone</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git clone</em>
+                                </dt>
+                                <dd>
+                                    Clone a remote repo and download locally
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            Clone from github:
+                            <pre><code>$ git clone git@github.com:hakimel/reveal.js.git</code></pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git fetch</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git fetch</em>
+                                </dt>
+                                <dd>
+                                    <em>Fetch</em> changes (new commits, branches, tags, etc.) from a remote but don't merge
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            Fetch from remote origin:
+                            <pre><code>$ git fetch origin</code></pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git merge</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git merge</em>
+                                </dt>
+                                <dd>
+                                    <em>Merge</em> changes from a branch to current branch
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            Merge changes from a feature branch:
+                            <pre><code>$ git merge FEATURE_BRANCH_NAME</code></pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git pull</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git pull</em>
+                                </dt>
+                                <dd>
+                                    Perform a fetch and then a merge in one step, more common than fetch or merge alone
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            Pull changes from a remote master branch at the origin:
+                            <pre><code>$ git pull origin master</code></pre>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>git push</h3>
+                        <p>
+                            <dl>
+                                <dt>
+                                    <em>git push</em>
+                                </dt>
+                                <dd>
+                                    Push a branch to a remote, creating the branch if it doesn't already exist
+                                </dd>
+                            </dl>
+                        </p>
+                        <p>
+                            <br />
+                            Push a feature branch to the origin:
+                            <pre><code>$ git push origin FEATURE_BRANCH</code></pre>
+                        </p>
+                        <p class="fragment">
+                            You can set other remotes to push to and pull from, but that is outside the scope of this talk and not very common outside of OSS
+                        </p>
+                    </section>
+                    <section data-background="https://media.giphy.com/media/11LWFP3gzyzKxy/giphy.gif">
+                        <h2>Got all that?</h2>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>Reccomended git workflow</h1>
+                    </section>
+                    <section>
+                        <h3>Sorry, Linus</h3>
+                        <p>
+                            Much to Linus' chagrin, most people find value in using a central repository, but the most common workflows aren't <em>too</em> different from his ideal
+                        </p>
+                        <p>
+                            Most people use <a href="https://www.github.com/">Github</a> to store a central repository
+                        </p>
+                        <p>
+                            <img class="rounded" style="max-width: 30%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png"></img>
+                        </p>
+                    </section>
+                    <section>
+                        <h3></h3>
+                        <p>
+                            Much to Linus' chagrin, most people find value in using a central repository
+                        </p>
+                        <p>
+                            Most people use <a href="https://www.github.com/">Github</a> to store a central repository
+                        </p>
+                        <p>
+                            <img class="rounded" style="max-width: 30%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png"></img>
+                        </p>
+                    </section>
+                </section>
             </div>
 
         </div>
