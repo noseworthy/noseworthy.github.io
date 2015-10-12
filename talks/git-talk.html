@@ -323,6 +323,10 @@
                             Discard <em>unstaged</em> changes:
                             <pre><code>$ git checkout -- path/to/file</code></pre>
                         </p>
+                        <p>
+                            Create new branch and switch to it:
+                            <pre><code>$ git checkout -b NEW_BRANCH_NAME</code></pre>
+                        </p>
                     </section>
                     <section>
                         <h3>git add</h3>
@@ -449,30 +453,83 @@
                 </section>
                 <section>
                     <section>
-                        <h1>Reccomended git workflow</h1>
+                        <h1>Reccomended git workflows</h1>
                     </section>
                     <section>
-                        <h3>Sorry, Linus</h3>
+                        <h3>Online Hosting Services</h3>
                         <p>
-                            Much to Linus' chagrin, most people find value in using a central repository, but the most common workflows aren't <em>too</em> different from his ideal
+                            Much to Linus' chagrin, most people find value in using an "official" hosted repository, but the most common workflows aren't <em>too</em> different from his ideal
                         </p>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <a href="https://www.github.com/">
+                                            Github <br />
+                                            <img class="rounded" style="max-height: 20%" alt="Octocat" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png"></img>
+                                        </a>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        <a href="https://www.bitbucket.com/">
+                                            BitBucket <br />
+                                            <img class="rounded" style="max-height: 100%" alt="BitBucket" src="https://pbs.twimg.com/profile_images/550357080071094273/eP6Or4qB_400x400.png"></img>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Common Workflow Types</h3>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        Centralized Workflow <br />
+                                        <img style="max-width: 89%; max-height: auto;" alt="Centralized Workflow Diagram" src="https://www.atlassian.com/git/images/tutorials/collaborating/comparing-workflows/centralized-workflow/01.svg"></img>
+                                    </td>
+                                    <td style="text-align: center;">
+                                        Forking Workflow <br />
+                                        <img style="max-width: 125%; max-height: auto;" alt="Forking Workflow Diagram" src="https://www.atlassian.com/git/images/tutorials/collaborating/comparing-workflows/forking-workflow/01.svg"></img>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                    <section>
+                        <h3>Centralized Workflow</h3>
                         <p>
-                            Most people use <a href="https://www.github.com/">Github</a> to store a central repository
+                            Similar to the workflow of CVS or SVN
                         </p>
-                        <p>
-                            <img class="rounded" style="max-width: 30%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png"></img>
+                        <p class="fragment">
+                            Everyone on the team has read and write access to the official hosted repository
+                        </p>
+                        <p class="fragment">
+                            A branching strategy is usually employed and team members open <em>pull requests</em> against the master branch
                         </p>
                     </section>
                     <section>
-                        <h3></h3>
+                        <h3>Forking Workflow</h3>
                         <p>
-                            Much to Linus' chagrin, most people find value in using a central repository
+                            Most similar to Linus' <em>ideal</em> distributed workflow
                         </p>
-                        <p>
-                            Most people use <a href="https://www.github.com/">Github</a> to store a central repository
+                        <p class="fragment">
+                            Project owner/maintainer(s) manage the official repo
                         </p>
+                        <p class="fragment">
+                            Team members <em>fork</em> the official repo and have their own hosted versions that they develop on
+                        </p>
+                        <p class="fragment">
+                            When team members want changes to make it in to the official repository, they open a pull request against the official repository
+                        </p>
+                        <p class="fragment">
+                            The maintainer(s) will review and merge the branch or reject it
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Branching Strategy</h3>
                         <p>
-                            <img class="rounded" style="max-width: 30%;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png"></img>
+
                         </p>
                     </section>
                 </section>
