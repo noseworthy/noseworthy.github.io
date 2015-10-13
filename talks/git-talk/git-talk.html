@@ -11,21 +11,21 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
-        <link rel="stylesheet" href="../css/reveal.css">
-        <link rel="stylesheet" href="../css/theme/league.css" id="theme">
+        <link rel="stylesheet" href="../../css/reveal.css">
+        <link rel="stylesheet" href="../../css/theme/league.css" id="theme">
 
-        <script src="../js/reveal.js"></script>
-        <script src="../lib/js/head.min.js"></script>
+        <script src="../../js/reveal.js"></script>
+        <script src="../../lib/js/head.min.js"></script>
 
         <!-- Code syntax highlighting -->
-        <link rel="stylesheet" href="../lib/css/zenburn.css">
+        <link rel="stylesheet" href="../../lib/css/zenburn.css">
 
         <!-- Printing and PDF exports -->
         <script>
             var link = document.createElement( 'link' );
             link.rel = 'stylesheet';
             link.type = 'text/css';
-            link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
             document.getElementsByTagName( 'head' )[0].appendChild( link );
         </script>
 
@@ -466,13 +466,13 @@
                                     <td style="text-align: center;">
                                         <a href="https://www.github.com/">
                                             Github <br />
-                                            <img class="rounded" style="max-height: 20%" alt="Octocat" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png"></img>
+                                            <img style="max-height: 20%" alt="Octocat" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png"></img>
                                         </a>
                                     </td>
                                     <td style="text-align: center;">
                                         <a href="https://www.bitbucket.com/">
                                             BitBucket <br />
-                                            <img class="rounded" style="max-height: 100%" alt="BitBucket" src="https://pbs.twimg.com/profile_images/550357080071094273/eP6Or4qB_400x400.png"></img>
+                                            <img style="max-height: 100%" alt="BitBucket" src="https://pbs.twimg.com/profile_images/550357080071094273/eP6Or4qB_400x400.png"></img>
                                         </a>
                                     </td>
                                 </tr>
@@ -531,9 +531,45 @@
                         <p>
                             Three branches: master, test, dev
                         </p>
-                        <p>
-
-                        </p>
+                        <img alt="Dev Test Prod Branch Strategy" src="./resources/dev-test-prod-branches.svg"></img>
+                    </section>
+                    <section>
+                        <h3>Branching Strategy ctd.</h3>
+                        <dl>
+                            <dt>
+                                dev
+                            </dt>
+                            <dd>
+                                Where active development happens. Developers make feature branches off of dev
+                            </dd>
+                            <dt>
+                                test
+                            </dt>
+                            <dd>
+                                Stable pre-release branch. Used for product verification
+                            </dd>
+                            <dt>
+                                master
+                            </dt>
+                            <dd>
+                                Main production branch. Should always be error free and able to be deployed.
+                            </dd>
+                        </dl>
+                    </section>
+                </section>
+                <section data-background="https://d13yacurqjgara.cloudfront.net/users/60517/screenshots/787426/questions.gif">
+                </section>
+                <section>
+                    <section>
+                        <h1>Other Resources</h1>
+                    </section>
+                    <section>
+                        <h3>Pro Git</h3>
+                        <a href="https://git-scm.com/book/en/v2"><img style="max-width: 20%; max-height: auto;" src="https://git-scm.com/images/progit2.png"></img></a>
+                    </section>
+                    <section>
+                        <h3>try.github.io</h3>
+                        <a href="https://try.github.io/"><img alt="Course Logo" src="https://d13jv82ekraqyq.cloudfront.net/assets/logo-course-1fc23c6b16d6feda2bbfc802af9a209f.gif"></img></a>
                     </section>
                 </section>
             </div>
@@ -550,12 +586,12 @@
                 transition: 'slide', // none/fade/slide/convex/concave/zoom
                 // Optional reveal.js plugins
                 dependencies: [
-                    { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: '../plugin/zoom-js/zoom.js', async: true },
-                    { src: '../plugin/notes/notes.js', async: true }
+                    { src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../../plugin/zoom-js/zoom.js', async: true },
+                    { src: '../../plugin/notes/notes.js', async: true }
                 ]
             });
         </script>
