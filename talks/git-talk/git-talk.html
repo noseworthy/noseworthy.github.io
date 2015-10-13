@@ -43,7 +43,7 @@
                     <img style="background-color: white" alt="git" src=https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/640px-Git-logo.svg.png />
                     <h3>Distributed Revision Control System</h3>
                     <p>
-                        <small>Created by <a href="https://noseworthy.github.io/">Mike Noseworthy</a></small>
+                        <small>Created by <a href="https://noseworthy.github.io/">Michael Noseworthy</a></small>
                     </p>
                 </section>
 
@@ -107,30 +107,6 @@
                         </p>
                     </section>
                     <section>
-                        <h3>To The Drawing Board!</h3>
-                        <p>
-                            Linus' requirements eliminated all existing systems
-                        </p>
-                        <p class="fragment">
-                            CVS and SVN met none of the requirements
-                        </p>
-                        <p class="fragment">
-                            All other distributed systems were either closed, behind a pay wall, or didn't meet the requirements
-                        </p>
-                    </section>
-                    <section>
-                        <h3>To The Drawing Board!</h3>
-                        <p>
-                            Linus' requirements eliminated all existing systems
-                        </p>
-                        <p class="fragment">
-                            CVS and SVN met none of the requirements
-                        </p>
-                        <p class="fragment">
-                            All other distributed systems were either closed, behind a pay wall, or didn't meet the requirements
-                        </p>
-                    </section>
-                    <section>
                         <h3>Initial Release</h3>
                         <p>
                             Linus went home for the weekend, and early next week released the first version of git on April 7, 2005
@@ -144,16 +120,11 @@
                         <p>
                             Why call it git?
                         </p>
-                        <p class="fragment">
+                        <p>
                             British slang for "an unpleasant person"
                         </p>
-                        <p class="fragment">
-                            "I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."
-                            <br />
-                            - Linus torvalds
-                        </p>
-                        <p class="fragment">
-                            <img src="https://lwn.net/images/conf/ks-jls-09/linus-win7.jpg"></img>
+                        <p>
+                            <blockquote>"I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."</blockquote>
                         </p>
                     </section>
                 </section>
@@ -215,7 +186,7 @@
                     <section>
                         <h3>Consistent</h3>
                         <p class="fragment">
-                            Each version of the repo is identified by a SHA-256 hash that depends on the complete history of the project
+                            Each version of the repo is identified by a SHA-1 hash that depends on the complete history of the project
                         </p>
                         <p class="fragment">
                             Using a cryptographically secure hash algorithm ensures that history can't be modified without git noticing
@@ -556,21 +527,55 @@
                             </dd>
                         </dl>
                     </section>
-                </section>
-                <section data-background="https://d13yacurqjgara.cloudfront.net/users/60517/screenshots/787426/questions.gif">
+                    <section>
+                        <h3>Feature Branching</h3>
+                        <p>
+                            As was said before, git's branches are super lightweight
+                        </p>
+                        <p class="fragment">
+                            A branch is just a pointer to a commit
+                        </p>
+                        <p class="fragment">
+                            Create branches off of the dev branch to do edits and merge feature branches back into dev
+                        <p>
+                    </section>
                 </section>
                 <section>
                     <section>
-                        <h1>Other Resources</h1>
+                        <h1>Homework</h1>
+                    </section>
+                    <section>
+                        <h3>try.github.io</h3>
+                        <a href="https://try.github.io/"><img alt="Course Logo" src="https://d13jv82ekraqyq.cloudfront.net/assets/logo-course-1fc23c6b16d6feda2bbfc802af9a209f.gif"></img></a>
                     </section>
                     <section>
                         <h3>Pro Git</h3>
                         <a href="https://git-scm.com/book/en/v2"><img style="max-width: 20%; max-height: auto;" src="https://git-scm.com/images/progit2.png"></img></a>
                     </section>
                     <section>
-                        <h3>try.github.io</h3>
-                        <a href="https://try.github.io/"><img alt="Course Logo" src="https://d13jv82ekraqyq.cloudfront.net/assets/logo-course-1fc23c6b16d6feda2bbfc802af9a209f.gif"></img></a>
+                        <h3>Atlassian Tutorials</h3>
+                        <p>This is a fantastic git resource. In depth, easy to read tutorials on all the major features of git</p>
+                        <ul>
+                            <li><a href="https://www.atlassian.com/git/">Getting Git Right (Home)</a></li>
+                            <li><a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository">Git Getting Started Tutorials</a></li>
+                        </ul>
                     </section>
+                    <section>
+                        <h3>Git Submodules</h3>
+                        <p>
+                            Out of Scope for this talk
+                        </p>
+                        <p class="fragment">
+                            I don't like them. Though I understand that sometimes they can make repo organization easier (though they usually end up making it worse)
+                        </p>
+                        <p class="fragment">
+                            <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Here's a link to the submodule chapter of <em>Pro Git</em> for you to read later</a>
+                        </p>
+                    </section>
+                </section>
+                <section data-background="https://d13yacurqjgara.cloudfront.net/users/60517/screenshots/787426/questions.gif">
+                </section>
+                <section data-background="http://www.forastateofhappiness.com/wp-content/uploads/2015/07/thats-all-folks.jpg">
                 </section>
             </div>
 
