@@ -50,11 +50,8 @@
                 <section>
                     <section>
                         <h2>What is git?</h2>
-                    </section>
-                    <section>
-                        <h3>What is git?</h3>
-                        <p>git is a distributed revision control system created by Linus Torvalds in April 2005</p>
-                        <img class="fragment" alt="Linus torvalds" src="https://implyingrigged.info/w/images/thumb/a/a8/Torvalds.gif/250px-Torvalds.gif"></img>
+                        <p class="fragment">git is a distributed revision control system created by Linus Torvalds in April 2005</p>
+                        <img class="fragment" alt="Linus torvalds" src="https://implyingrigged.info/w/images/thumb/a/a8/Torvalds.gif/250px-Torvalds.gif">
                     </section>
                     <section>
                         <h3>History</h3>
@@ -109,24 +106,14 @@
                     </section>
                     <section>
                         <h3>Initial Release</h3>
-                        <p>
-                            Linus went home for the weekend, and early next week released the first version of git on April 7, 2005
-                        </p>
-                        <p class="fragment">
-                            It took Linus about a day to get git "self hosting", i.e., able to commit changes to git using git<sup><a href="http://www.linux.com/news/featured-blogs/185-jennifer-cloer/821541-10-years-of-git-an-interview-with-git-creator-linus-torvalds">*</a></sup>
-                        </p>
+                        <p>Linus went home for the weekend, and early next week released the first version of git on April 7, 2005</p>
+                        <p class="fragment">It took Linus about a day to get git "self hosting", i.e., able to commit changes to git using git<sup><a href="http://www.linux.com/news/featured-blogs/185-jennifer-cloer/821541-10-years-of-git-an-interview-with-git-creator-linus-torvalds">*</a></sup></p>
                     </section>
                     <section>
                         <h3>The Name</h3>
-                        <p>
-                            Why call it git?
-                        </p>
-                        <p>
-                            British slang for "an unpleasant person"
-                        </p>
-                        <p>
-                            <blockquote>"I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."</blockquote>
-                        </p>
+                        <p>Why call it git</p>
+                        <p>British slang for "an unpleasant person</p>
+                        <p><blockquote>"I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."</blockquote>
                     </section>
                 </section>
 
@@ -206,17 +193,31 @@
                         </p>
                     </section>
                     <section>
-                        <h3>git init</h3>
+                        <h3>git config</h3>
+                        <dl>
+                            <dt>
+                                <em>git config</em>
+                            </dt>
+                            <dd>
+                                Configure git options globally or locally
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git init</em>
-                                </dt>
-                                <dd>
-                                    initializes a new repository
-                                </dd>
-                            </dl>
-                        </p>
+                        First git commands are usually:
+                        <pre><code>$ git config --global user.name "YOUR NAME"</code></pre>
+                        <pre><code>$ git config --global user.email "YOUR EMAIL ADDRESS"</code></pre>
+                    </section>
+                    <section>
+                        <h3>git init</h3>
+                        <dl>
+                            <dt>
+                                <em>git init</em>
+                            </dt>
+                            <dd>
+                                initializes a new repository
+                            </dd>
+                        </dl>
+
                         <p class="fragment">
                             <br />
                             Creates a <em>.git</em> directory inside an existing directory
@@ -226,191 +227,159 @@
                         </p>
                     </section>
                     <section>
-                        <h3>git config</h3>
+                        <h3>git clone</h3>
+                        <dl>
+                            <dt>
+                                <em>git clone</em>
+                            </dt>
+                            <dd>
+                                Clone a remote repo and download locally
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git config</em>
-                                </dt>
-                                <dd>
-                                    Configure git options globally or locally
-                                </dd>
-                            </dl>
-                        </p>
-                        <p>
-                            <br />
-                            First git commands are usually:
-                            <pre><code>$ git config --global user.name "YOUR NAME"</code></pre>
-                            <pre><code>$ git config --global user.email "YOUR EMAIL ADDRESS"</code></pre>
-                        </p>
+                        <br />
+                        Clone from github:
+                        <pre><code>$ git clone git@github.com:hakimel/reveal.js.git</code></pre>
                     </section>
                     <section>
                         <h3>git branch</h3>
+                        <dl>
+                            <dt>
+                                <em>git branch</em>
+                            </dt>
+                            <dd>
+                                Create, list or delete branches
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git branch</em>
-                                </dt>
-                                <dd>
-                                    Create, list or delete branches
-                                </dd>
-                            </dl>
-                        </p>
-                        <p>
-                            <br />
-                            Create a branch:
-                            <pre><code>$ git branch BRANCH_NAME</code></pre>
-                        </p>
-                        <p>
-                            Delete a branch:
-                            <pre><code>$ git branch -d BRANCH_NAME</code></pre>
-                        </p>
-                        <p>
-                            List all branches:
-                            <pre><code>$ git branch</code></pre>
-                        </p>
+                        <br />
+                        Create a branch:
+                        <pre><code>$ git branch BRANCH_NAME</code></pre>
+                        Delete a branch:
+                        <pre><code>$ git branch -d BRANCH_NAME</code></pre>
+                        Force delete a branch:
+                        <pre><code>$ git branch -D BRANCH_NAME</code></pre>
+                        List all branches:
+                        <pre><code>$ git branch</code></pre>
                     </section>
                     <section>
                         <h3>git checkout</h3>
+                        <dl>
+                            <dt>
+                                <em>git checkout</em>
+                            </dt>
+                            <dd>
+                                Switch between branches
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git checkout</em>
-                                </dt>
-                                <dd>
-                                    Switch between branches
-                                </dd>
-                            </dl>
-                        </p>
-                        <p>
-                            <br />
-                            Switch to a feature branch:
-                            <pre><code>$ git checkout FEATURE_BRANCH_NAME</code></pre>
-                        </p>
-                        <p>
-                            Switch back to master:
-                            <pre><code>$ git checkout master</code></pre>
-                        </p>
-                        <p>
-                            Discard <em>unstaged</em> changes:
-                            <pre><code>$ git checkout -- path/to/file</code></pre>
-                        </p>
-                        <p>
-                            Create new branch and switch to it:
-                            <pre><code>$ git checkout -b NEW_BRANCH_NAME</code></pre>
-                        </p>
+                        <br />
+                        Switch to a feature branch:
+                        <pre><code>$ git checkout FEATURE_BRANCH_NAME</code></pre>
+                        Switch back to master:
+                        <pre><code>$ git checkout master</code></pre>
+                        Discard <em>unstaged</em> changes:
+                        <pre><code>$ git checkout -- path/to/file</code></pre>
+                        Create new branch and switch to it:
+                        <pre><code>$ git checkout -b NEW_BRANCH_NAME</code></pre>
                     </section>
                     <section>
                         <h3>git add</h3>
+                        <dl>
+                            <dt>
+                                <em>git add</em>
+                            </dt>
+                            <dd>
+                                Add file contents to the <em>index</em> or <em>staging</em> area
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git add</em>
-                                </dt>
-                                <dd>
-                                    Add file contents to the <em>index</em> or <em>staging</em> area
-                                </dd>
-                            </dl>
-                        </p>
-                        <p>
-                            <br />
-                            Add a specific file:
-                            <pre><code>$ git add path/to/file</code></pre>
-                        </p>
-                        <p>
-                            Add everything:
-                            <pre><code>$ git add .</code></pre>
-                        </p>
+                        <br />
+                        Add a specific file:
+                        <pre><code>$ git add path/to/file</code></pre>
+                        Add everything:
+                        <pre><code>$ git add .</code></pre>
                     </section>
                     <section>
-                        <h3>git clone</h3>
+                        <h3>git commit</h3>
+                        <dl>
+                            <dt>
+                                <em>git commit</em>
+                            </dt>
+                            <dd>
+                                Commit changes staged in index to current branch
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git clone</em>
-                                </dt>
-                                <dd>
-                                    Clone a remote repo and download locally
-                                </dd>
-                            </dl>
-                        </p>
-                        <p>
-                            <br />
-                            Clone from github:
-                            <pre><code>$ git clone git@github.com:hakimel/reveal.js.git</code></pre>
-                        </p>
+                        <br />
+                        Launch editor to write commit message and commit on save:
+                        <pre><code>$ git commit</code></pre>
+                        Add changes from any tracked files and commit:
+                        <pre><code>$ git commit -a</code></pre>
+                        Launch editor (displaying current diff) to write message and commit on save:
+                        <pre><code>$ git commit -v</code></pre>
+                        Commit with one-liner message:
+                        <pre><code>$ git commit -m "Commit message!"</code></pre>
                     </section>
                     <section>
                         <h3>git fetch</h3>
+                        <dl>
+                            <dt>
+                                <em>git fetch</em>
+                            </dt>
+                            <dd>
+                                <em>Fetch</em> changes (new commits, branches, tags, etc.) from a remote but don't merge
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git fetch</em>
-                                </dt>
-                                <dd>
-                                    <em>Fetch</em> changes (new commits, branches, tags, etc.) from a remote but don't merge
-                                </dd>
-                            </dl>
-                        </p>
-                        <p>
-                            <br />
-                            Fetch from remote origin:
-                            <pre><code>$ git fetch origin</code></pre>
-                        </p>
+                        <br />
+                        Fetch from remote origin:
+                        <pre><code>$ git fetch origin</code></pre>
                     </section>
                     <section>
                         <h3>git merge</h3>
+                        <dl>
+                            <dt>
+                                <em>git merge</em>
+                            </dt>
+                            <dd>
+                                <em>Merge</em> changes from a branch to current branch
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git merge</em>
-                                </dt>
-                                <dd>
-                                    <em>Merge</em> changes from a branch to current branch
-                                </dd>
-                            </dl>
-                        </p>
-                        <p>
-                            <br />
-                            Merge changes from a feature branch:
-                            <pre><code>$ git merge FEATURE_BRANCH_NAME</code></pre>
-                        </p>
+                        <br />
+                        Merge changes from a feature branch:
+                        <pre><code>$ git merge FEATURE_BRANCH_NAME</code></pre>
                     </section>
                     <section>
                         <h3>git pull</h3>
+                        <dl>
+                            <dt>
+                                <em>git pull</em>
+                            </dt>
+                            <dd>
+                                Perform a fetch and then a merge in one step, more common than fetch or merge alone
+                            </dd>
+                        </dl>
                         <p>
-                            <dl>
-                                <dt>
-                                    <em>git pull</em>
-                                </dt>
-                                <dd>
-                                    Perform a fetch and then a merge in one step, more common than fetch or merge alone
-                                </dd>
-                            </dl>
-                        </p>
-                        <p>
-                            <br />
-                            Pull changes from a remote master branch at the origin:
-                            <pre><code>$ git pull origin master</code></pre>
-                        </p>
+                        <br />
+                        Pull changes from a remote master branch at the origin:
+                        <pre><code>$ git pull origin master</code></pre>
                     </section>
                     <section>
                         <h3>git push</h3>
-                        <p>
-                            <dl>
-                                <dt>
-                                    <em>git push</em>
-                                </dt>
-                                <dd>
-                                    Push a branch to a remote, creating the branch if it doesn't already exist
-                                </dd>
-                            </dl>
-                        </p>
+                        <dl>
+                            <dt>
+                                <em>git push</em>
+                            </dt>
+                            <dd>
+                                Push a branch to a remote, creating the branch if it doesn't already exist
+                            </dd>
+                        </dl>
                         <p>
                             <br />
                             Push a feature branch to the origin:
                             <pre><code>$ git push origin FEATURE_BRANCH</code></pre>
-                        </p>
                         <p class="fragment">
                             You can set other remotes to push to and pull from, but that is outside the scope of this talk and not very common outside of OSS
                         </p>
@@ -434,13 +403,13 @@
                                     <td style="text-align: center;">
                                         <a href="https://www.github.com/">
                                             Github <br />
-                                            <img style="max-height: 20%" alt="Octocat" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png"></img>
+                                            <img style="max-height: 20%" alt="Octocat" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PEO-octocat-1.svg/2000px-PEO-octocat-1.svg.png">
                                         </a>
                                     </td>
                                     <td style="text-align: center;">
                                         <a href="https://www.bitbucket.com/">
                                             BitBucket <br />
-                                            <img style="max-height: 100%" alt="BitBucket" src="https://pbs.twimg.com/profile_images/550357080071094273/eP6Or4qB_400x400.png"></img>
+                                            <img style="max-height: 100%" alt="BitBucket" src="https://pbs.twimg.com/profile_images/550357080071094273/eP6Or4qB_400x400.png">
                                         </a>
                                     </td>
                                 </tr>
@@ -454,11 +423,11 @@
                                 <tr>
                                     <td style="text-align: center;">
                                         Centralized Workflow <br />
-                                        <img style="max-width: 89%; max-height: auto;" alt="Centralized Workflow Diagram" src="https://www.atlassian.com/git/images/tutorials/collaborating/comparing-workflows/centralized-workflow/01.svg"></img>
+                                        <img style="max-width: 89%; max-height: auto;" alt="Centralized Workflow Diagram" src="https://www.atlassian.com/git/images/tutorials/collaborating/comparing-workflows/centralized-workflow/01.svg">
                                     </td>
                                     <td style="text-align: center;">
                                         Forking Workflow <br />
-                                        <img style="max-width: 125%; max-height: auto;" alt="Forking Workflow Diagram" src="https://www.atlassian.com/git/images/tutorials/collaborating/comparing-workflows/forking-workflow/01.svg"></img>
+                                        <img style="max-width: 125%; max-height: auto;" alt="Forking Workflow Diagram" src="https://www.atlassian.com/git/images/tutorials/collaborating/comparing-workflows/forking-workflow/01.svg">
                                     </td>
                                 </tr>
                             </tbody>
@@ -499,7 +468,7 @@
                         <p>
                             Three branches: master, test, dev
                         </p>
-                        <img alt="Dev Test Prod Branch Strategy" src="./resources/dev-test-prod-branches.svg"></img>
+                        <img alt="Dev Test Prod Branch Strategy" src="./resources/dev-test-prod-branches.svg">
                     </section>
                     <section>
                         <h3>Branching Strategy ctd.</h3>
@@ -543,11 +512,11 @@
                     </section>
                     <section>
                         <h3>try.github.io</h3>
-                        <a href="https://try.github.io/"><img alt="Course Logo" src="https://d13jv82ekraqyq.cloudfront.net/assets/logo-course-1fc23c6b16d6feda2bbfc802af9a209f.gif"></img></a>
+                        <a href="https://try.github.io/"><img alt="Course Logo" src="https://d13jv82ekraqyq.cloudfront.net/assets/logo-course-1fc23c6b16d6feda2bbfc802af9a209f.gif"></a>
                     </section>
                     <section>
                         <h3>Pro Git</h3>
-                        <a href="https://git-scm.com/book/en/v2"><img style="max-width: 20%; max-height: auto;" alt="Pro Git" src="https://git-scm.com/images/progit2.png"></img></a>
+                        <a href="https://git-scm.com/book/en/v2"><img style="max-width: 20%; max-height: auto;" alt="Pro Git" src="https://git-scm.com/images/progit2.png"></a>
                     </section>
                     <section>
                         <h3>Atlassian Tutorials</h3>
@@ -570,7 +539,8 @@
                         </p>
                     </section>
                 </section>
-                <section data-background="https://d13yacurqjgara.cloudfront.net/users/60517/screenshots/787426/questions.gif">
+                <section>
+                    <h2>Any Questions?</h2>
                 </section>
                 <section data-background="http://www.forastateofhappiness.com/wp-content/uploads/2015/07/thats-all-folks.jpg">
                 </section>
