@@ -45,7 +45,6 @@
                 <section>
                     <h1>The 12-Factor App</h1>
                     <h3>Build Modern, Saclable Web Apps</h3>
-                    <img alt="12 Factor App Symbol" src="http://12factor.net/images/symbol.png" />
                 </section>
                 <section>
                     <h2>Agenda</h2>
@@ -68,8 +67,110 @@
                     <section>
                         <h3>Origin</h3>
                         <p>
-                            Written in November, 2011 by Adam Wiggins
+                            Written in November, 2011 by Adam Wiggins, co-founder
+                            of Heroku
                         </p>
+                        <p>
+                            Written as a methodology to:
+                            <ul>
+                                <li>Avoid common pitfalls when building cloud based SaaS apps</li>
+                                <li>Help people build apps that will work optimally on Heroku and other PaaS offerings</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>What <em>kind</em> of app does it encourage</h3>
+                        <p>Apps that:</p>
+                        <ul>
+                            <li>Use <strong>declarative formats</strong> for setup automation, to minimize time and cost for new developers joining the project</li>
+                            <li>Have a <strong>clean contract</strong> with the underlying operating system, offering <strong>maximum portability</strong> between execution environments</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>What <em>kind</em> of app does it encourage</h3>
+                        <ul>
+                            <li>Are suitable for <strong>deployment</strong> on modern cloud platforms, obviating the need for servers and systems administration</li>
+                            <li><strong>Minimize divergence</strong> between development and production, enabling <strong>continuous deployment</strong> for maximum agility</li>
+                            <li>And can <strong>scale up</strong> without significant changes to tooling, architecture, or development practices</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Programming Language?</h3>
+                        <p>Nope.</p>
+                        <p class="fragment">The Twelve-Factor App is language, platform, and toolset agnostic!</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>The Twelve Factors</h2>
+                    <p>Finally! Why we're all here!</p>
+                </section>
+                <section>
+                    <section>
+                        <h2>I. Codebase</h2>
+                        <blockquote>
+                            One codebase tracked in revision control, many deploys
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h3>One Codebase</h3>
+                        <p>A twelve-factor app relates one-to-one with a single code base</p>
+                        <p class="fragment">Multiple code bases == Distributed System</p>
+                        <p class="fragment">Each app in a distributed system is a <em>tewlve-factor</em> app</p>
+                        <p class="fragment">... with it's own codebase</p>
+                    </section>
+                    <section>
+                        <h3>Tracked In Revision Control</h3>
+                        <p>Code base <em>MUST</em> be tracked in reversion control</p>
+                        <p class="fragment">Allows for collaborative development</p>
+                        <p class="fragment">Recommend <strong>git</strong> but any revision control will do</p>
+                    </section>
+                    <section>
+                        <h3>Many Deploys</h3>
+                        <p>Each running instance is a <strong>deploy</strong></p>
+                        <p class="fragment">Might have dev, test, and production deploys</p>
+                        <p class="fragment">Each running instance on a developer's machine is a deploy</p>
+                        <p class="fragment">Code base for each deploy is the same, but probably different versions and configuration</p>
+                    </section>
+                    <section>
+                        <h3>Many Deploys</h3>
+                        <img alt="Many Deploy Diagram" style="border: none; box-shadow: none;" src="./content/codebase-deploys.svg"></img>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Helps new developers become familiar by having single source</p>
+                        <p class="fragment">Eliminates compliations with dependencies on other source code</p>
+                        <p class="fragment">Deploys are easy because you just need one source repo</p>
+                        <p class="fragment">All the benefits of a revision control system</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>II. Dependencies</h2>
+                        <blockquote>Explicitly declare and isolate dependencies</blockquote>
+                    </section>
+                    <section>
+                        <h3>Explicitly Declare Dependencies</h3>
+                        <p>Most programming languages have some sort of package manager</p>
+                        <p class="fragment">CPAN for perl, PyPI for python, npm for node.js, etc.</p>
+                        <p class="fragment">A twelve-factor app has dependencies (including version) declared in a <em>dependency manifest</em></p>
+                    </section>
+                    <section>
+                        <h3>Isolate Dependencies</h3>
+                        <blockquote>A twelve-factor app never relies on implicit existence of system-wide packages</blockquote>
+                        <p class="fragment">Use a dependency isolation tool to ensure no leak</p>
+                        <p class="fragment"><em>Vendor</em> or <em>bundle</em> dependencies locally <em>with</em> the app</p>
+                        <p class="fragment">This includes "system" tools, don't expect <code>curl</code> to be installed everywhere!</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>
+                            Helps new developers because all they need is:
+                            <ol>
+                                <li>Language runtime</li>
+                                <li>Dependency manager</li>
+                            </ol>
+                        </p>
+                        <p class="fragment">Everything is set up with a declarative <code>build</code> command</p>
                     </section>
                 </section>
             </div>
