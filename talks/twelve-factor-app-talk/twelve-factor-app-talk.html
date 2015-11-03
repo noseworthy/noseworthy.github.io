@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>The 12-Factor App</title>
-        <meta name="description" content="The 12-Factor App">
+        <title>The Twelve-Factor App</title>
+        <meta name="description" content="The Twelve-Factor App Talk">
         <meta name="author" content="Michael Noseworthy">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -43,7 +43,7 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section>
-                    <h1>The 12-Factor App</h1>
+                    <h1>The Twelve-Factor App</h1>
                     <h3>Build Modern, Saclable Web Apps</h3>
                 </section>
                 <section>
@@ -133,7 +133,7 @@
                     </section>
                     <section>
                         <h3>Many Deploys</h3>
-                        <img alt="Many Deploy Diagram" style="border: none; box-shadow: none;" src="./content/codebase-deploys.svg"></img>
+                        <img alt="Many Deploy Diagram" style="border: none; box-shadow: none;" src="./content/codebase-deploys.svg">
                     </section>
                     <section>
                         <h3>Why?</h3>
@@ -171,6 +171,144 @@
                             </ol>
                         </p>
                         <p class="fragment">Everything is set up with a declarative <code>build</code> command</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>III. Config</h2>
+                        <blockquote>Store Config In The Environment</blockquote>
+                    </section>
+                    <section>
+                        <h3>What Is Config?</h3>
+                        <blockquote>An app’s <em>config</em> is everything that is likely to vary between deploys</blockquote>
+                        <p class="fragment">
+                            For example:
+                            <ul>
+                                <li class="fragment">Resource handles to backing services</li>
+                                <li class="fragment">Credentials and <em>secrets</em> to external services</li>
+                                <li class="fragment">Per-deploy values such as canonical hostname</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Where Not To Store Config</h3>
+                        <p>A Twelve-Factor App <strong>never</strong> stores any config in the code base</p>
+                        <p class="fragment"><strong>Protip:</strong> If you can open source the codebase at any time and not comprimise yourself, you're probably good!</p>
+                    </section>
+                    <section>
+                        <h3>A (Slightly) Better Solution</h3>
+                        <p><em>Unversioned</em> config file</p>
+                        <ul>
+                            <li style="list-style: none;"><strong>+</strong> Outside of reversion control</li>
+                            <li style="list-style: none;"><strong>-</strong> Difficult to manage multiple deploy targets</li>
+                            <li style="list-style: none;"><strong>-</strong> Easy to accidentally commit to revision control</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Best Solution</h3>
+                        <p>Store config in environment variables</p>
+                        <ul>
+                            <li style="list-style: none;"><strong>+</strong> Outside of reversion control</li>
+                            <li style="list-style: none;"><strong>+</strong> Set at deploy time based on deploy target</li>
+                            <li style="list-style: none;"><strong>+</strong> Secure to the user of the running process</li>
+                            <li style="list-style: none;"><strong>+</strong> Language and OS agnostic</li>
+                        </ul>
+                        <p class="fragment">But how do you manage the config?</p>
+                    </section>
+                    <section>
+                        <h3>Addendum</h3>
+                        <p>The Twelve-Factor App doesn't talk much about this point</p>
+                        <p class="fragment">If you can't store secrets in version control, where do you store them?</p>
+                        <p class="fragment">Seperate secure/encrypted "vault" like 1password or truecrypt?</p>
+                        <p class="fragment">Tool to securely manage keys and config like <a href="https://docs.ansible.com/ansible/playbooks_vault.html">ansible-vault</a> or <a href="https://vaultproject.io/">Hashicorp Vault</a>?</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Security</p>
+                        <p class="fragment">Scalability</p>
+                        <p class="fragment">Separation of deploy targets config</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>IV. Backing Services</h2>
+                        <blockquote>Treat backing services as attached resources</blockquote>
+                    </section>
+                    <section>
+                        <h3>Backing Service</h3>
+                        <p>A backing service is any service the app consumes over a network</p>
+                        <ul>
+                            <li class="fragment">Database</li>
+                            <li class="fragment">Caching service</li>
+                            <li class="fragment">Queuing services</li>
+                            <li class="fragment">SMTP services</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Local vs. Remote</h3>
+                        <p>A twelve-factor app makes no distinction of local, remote, or third-party services</p>
+                        <p class="fragment">It treats all the same and accesses them using a URI specified in config</p>
+                        <p class="fragment">Should be able to swap out services without any code changes</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Makes managing multiple deploy targets or environment easier</p>
+                        <p class="fragment">Hot-swapping of services without code change</p>
+                        <p class="fragment">e.g. A database gets corrupted, spin up new one based on backup, swap with config change</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>V. Build, release, run</h2>
+                        <blockquote>Strictly separate build and run stages</blockquote>
+                    </section>
+                    <section>
+                        <h3>Deploy</h3>
+                        <p>A non-production deploy is created in three separate stages</p>
+                    </section>
+                    <section>
+                        <h3>Build</h3>
+                        <p>Transforms a code base into an executable</p>
+                        <p class="fragment">Compilation of binaries and assets</p>
+                        <p class="fragment">Vendoring of dependencies</p>
+                        <p class="fragment">Bundles together into a <em>build</em></p>
+                    </section>
+                    <section>
+                        <h3>Release</h3>
+                        <p>Combines build with config for the deploy target into a <em>release</em></p>
+                        <p class="fragment">Resulting release is ready for execution on target</p>
+                    </section>
+                    <section>
+                        <h3>Run</h3>
+                        <p>Runs the app in the execution environment on the target</p>
+                        <p class="fragment">Launches the <em>release</em> as a set of <em>processes</em></p>
+                    </section>
+                    <section>
+                        <h3>Strict Separation</h3>
+                        <blockquote>The twelve-factor app uses strict separation between the build, release, and run stages</blockquote>
+                        <p class="fragment">Can't change code at runtime or release time</p>
+                    </section>
+                    <section>
+                        <h3>Release Management</h3>
+                        <p>Sort of an aside to Twelve-Factor App</p>
+                        <p class="fragment">Some build tools manage releases</p>
+                        <p class="fragment">Releases are tagged with incrementing version number or timestamp</p>
+                        <p class="fragment">Current release is symlinked, rollback is easy, just change symlink</p>
+                    </section>
+                    <section>
+                        <h3>Build vs. Runtime</h3>
+                        <p>Builds are done by DevOps performing the deploy</p>
+                        <p class="fragment">Runtime execution can happen automatically after a reboot or when a process manager restarts after a crash</p>
+                        <p class="fragment">Runtime should therefore be as simple as possible, while builds can be more complex</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Improved uptime by:</p>
+                        <ul>
+                            <li class="fragment">Separation of steps == consistency</li>
+                            <li class="fragment">Easy rollback to previous version</li>
+                            <li class="fragment">Simple runtime steps ensure easy restarts in the middle of the night</li>
+                        </ul>
                     </section>
                 </section>
             </div>
