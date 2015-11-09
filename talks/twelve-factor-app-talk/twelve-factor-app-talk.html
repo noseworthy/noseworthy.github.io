@@ -70,13 +70,11 @@
                             Written in November, 2011 by Adam Wiggins, co-founder
                             of Heroku
                         </p>
-                        <p>
-                            Written as a methodology to:
-                            <ul>
-                                <li>Avoid common pitfalls when building cloud based SaaS apps</li>
-                                <li>Help people build apps that will work optimally on Heroku and other PaaS offerings</li>
-                            </ul>
-                        </p>
+                        <p>Written as a methodology to:</p>
+                        <ul>
+                            <li>Avoid common pitfalls when building cloud based SaaS apps</li>
+                            <li>Help people build apps that will work optimally on Heroku and other PaaS offerings</li>
+                        </ul>
                     </section>
                     <section>
                         <h3>What <em>kind</em> of app does it encourage</h3>
@@ -163,13 +161,11 @@
                     </section>
                     <section>
                         <h3>Why?</h3>
-                        <p>
-                            Helps new developers because all they need is:
-                            <ol>
-                                <li>Language runtime</li>
-                                <li>Dependency manager</li>
-                            </ol>
-                        </p>
+                        <p>Helps new developers because all they need is:</p>
+                        <ol>
+                            <li>Language runtime</li>
+                            <li>Dependency manager</li>
+                        </ol>
                         <p class="fragment">Everything is set up with a declarative <code>build</code> command</p>
                     </section>
                 </section>
@@ -181,14 +177,12 @@
                     <section>
                         <h3>What Is Config?</h3>
                         <blockquote>An app’s <em>config</em> is everything that is likely to vary between deploys</blockquote>
-                        <p class="fragment">
-                            For example:
-                            <ul>
-                                <li class="fragment">Resource handles to backing services</li>
-                                <li class="fragment">Credentials and <em>secrets</em> to external services</li>
-                                <li class="fragment">Per-deploy values such as canonical hostname</li>
-                            </ul>
-                        </p>
+                        <p class="fragment">For example:</p>
+                        <ul>
+                            <li class="fragment">Resource handles to backing services</li>
+                            <li class="fragment">Credentials and <em>secrets</em> to external services</li>
+                            <li class="fragment">Per-deploy values such as canonical hostname</li>
+                        </ul>
                     </section>
                     <section>
                         <h3>Where Not To Store Config</h3>
@@ -405,24 +399,22 @@
                     </section>
                     <section>
                         <h3>Web Processes</h3>
-                        <p>Graceful shutdown means:
-                            <ul>
-                                <li>Stops listening to port</li>
-                                <li>Finishes current requests</li>
-                                <li>Shutdown</li>
-                            </ul>
-                        </p>
+                        <p>Graceful shutdown means:</p>
+                        <ul>
+                            <li>Stops listening to port</li>
+                            <li>Finishes current requests</li>
+                            <li>Shutdown</li>
+                        </ul>
                     </section>
                     <section>
                         <h3>Worker Processes</h3>
-                        <p>Graceful shutdown means:
-                            <ul>
-                                <li>Stops accepting jobs</li>
-                                <li>Returns current job to job queue</li>
-                                <li>Locks are released</li>
-                                <li>Shutdown</li>
-                            </ul>
-                        </p>
+                        <p>Graceful shutdown means:</p>
+                        <ul>
+                            <li>Stops accepting jobs</li>
+                            <li>Returns current job to job queue</li>
+                            <li>Locks are released</li>
+                            <li>Shutdown</li>
+                        </ul>
                     </section>
                     <section>
                         <h3>Robust to Sudden Death</h3>
