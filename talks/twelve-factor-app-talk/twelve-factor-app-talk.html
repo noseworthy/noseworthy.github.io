@@ -53,7 +53,7 @@
                             Background
                         </li>
                         <li>
-                            The 12 Factors
+                            The Twelve Factors
                         </li>
                         <li>
                             Question Time!
@@ -192,7 +192,7 @@
                     </section>
                     <section>
                         <h3>Where Not To Store Config</h3>
-                        <p>A Twelve-Factor App <strong>never</strong> stores any config in the code base</p>
+                        <p>A twelve-factor App <strong>never</strong> stores any config in the code base</p>
                         <p class="fragment"><strong>Protip:</strong> If you can open source the codebase at any time and not comprimise yourself, you're probably good!</p>
                     </section>
                     <section>
@@ -217,7 +217,7 @@
                     </section>
                     <section>
                         <h3>Addendum</h3>
-                        <p>The Twelve-Factor App doesn't talk much about this point</p>
+                        <p><em>The Twelve-Factor App</em> doesn't talk much about this point</p>
                         <p class="fragment">If you can't store secrets in version control, where do you store them?</p>
                         <p class="fragment">Seperate secure/encrypted "vault" like 1password or truecrypt?</p>
                         <p class="fragment">Tool to securely manage keys and config like <a href="https://docs.ansible.com/ansible/playbooks_vault.html">ansible-vault</a> or <a href="https://vaultproject.io/">Hashicorp Vault</a>?</p>
@@ -290,7 +290,7 @@
                     </section>
                     <section>
                         <h3>Release Management</h3>
-                        <p>Sort of an aside to Twelve-Factor App</p>
+                        <p>Sort of an aside to <em>The Twelve-Factor App</em></p>
                         <p class="fragment">Some build tools manage releases</p>
                         <p class="fragment">Releases are tagged with incrementing version number or timestamp</p>
                         <p class="fragment">Current release is symlinked, rollback is easy, just change symlink</p>
@@ -310,6 +310,268 @@
                             <li class="fragment">Simple runtime steps ensure easy restarts in the middle of the night</li>
                         </ul>
                     </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>VI. Processes</h2>
+                        <blockquote>Execute the app as one or more stateless processes</blockquote>
+                    </section>
+                    <section>
+                        <h3>Unix Process Model</h3>
+                        <p>An app runs in an environment as one or more managed processes</p>
+                        <p>Managed processes: Start at bootup, restart automatically when needed</p>
+                        <p>Can use things like upstart, init, foreman, etc. </p>
+                    </section>
+                    <section>
+                        <h3>Stateless</h3>
+                        <p>App processes are stateless and share nothing</p>
+                        <p>All persistent data should be stored in a backing service</p>
+                        <p>Memory space and filesystem can act as single transaction cache</p>
+                    </section>
+                    <section>
+                        <h3>Sticky Sessions</h3>
+                        <p>Some apps use <em>sticky sessions</em></p>
+                        <p>Sticky sessions break twelve-factor and should not be used</p>
+                        <p>Any session data should be in backing service with data expiry</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Allows scalability and composability since processes are stateless</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>VII. Port binding</h2>
+                        <blockquote>Export services via port binding</blockquote>
+                    </section>
+                    <section>
+                        <h3>Completely Self Contained</h3>
+                        <p>A twelve-factor app is not run inside a web server container</p>
+                        <p>A twelve-factor app <strong>exports HTTP as a service by binding to a port</strong></p>
+                    </section>
+                    <section>
+                        <h3>Dependency Injection</h3>
+                        <p>Use declaritive dependency injection include a web server library</p>
+                        <p>Done in <em>user space</em> inside the app</p>
+                    </section>
+                    <section>
+                        <h3>Backing Services</h3>
+                        <p>By binding to ports, the app can be a backing service for another app</p>
+                        <p>Just specify url and port in configuration to chain together</p>
+                        <p>Any protocol can be exported via port binding, not just HTTP</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Composability</p>
+                        <p>Each app is a separate self containted entity</p>
+                        <p>We can compose a larger app by using other apps as backing services</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>VIII. Concurrency</h2>
+                        <blockquote>Scale out via the process model</blockquote>
+                    </section>
+                    <section>
+                        <h3>Unix Process Model</h3>
+                        <p>Thanks to factors VI and VII scaling should be easy</p>
+                        <p>Processes are independent and composable</p>
+                        <p>Architect for diverse workloads using <em>process types</em></p>
+                        <p>Shouldn't self daemonize, use OS process manager</p>
+                    </section>
+                    <section>
+                        <h3>Scaling Up And Out!</h3>
+                        <p>Add processes to increase concurrency</p>
+                        <p>Add process types to increase process diversity</p>
+                        <p>Add machines to scale horizontally</p>
+                        <img alt="Scaling Process Diagram" style="border: none; box-shadow: none;" src="./content/process-model.svg">
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>IX. Disposability</h2>
+                        <blockquote>Maximize robustness with fast startup and graceful shutdown</blockquote>
+                    </section>
+                    <section>
+                        <h3>Processes Are Disposable</h3>
+                        <p>Should <strong>minimize startup time</strong></p>
+                        <p>Can be started, stopped or restarted at a moments notice</p>
+                        <p>Helps with scaling, config changes, and fast deploys</p>
+                        <p>Process manager handles all of this for you</p>
+                    </section>
+                    <section>
+                        <h3>Graceful Shutdown</h3>
+                        <p>Processes should gracefully shutdown on <strong>SIGTERM</strong> from process manager</p>
+                    </section>
+                    <section>
+                        <h3>Web Processes</h3>
+                        <p>Graceful shutdown means:
+                            <ul>
+                                <li>Stops listening to port</li>
+                                <li>Finishes current requests</li>
+                                <li>Shutdown</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Worker Processes</h3>
+                        <p>Graceful shutdown means:
+                            <ul>
+                                <li>Stops accepting jobs</li>
+                                <li>Returns current job to job queue</li>
+                                <li>Locks are released</li>
+                                <li>Shutdown</li>
+                            </ul>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Robust to Sudden Death</h3>
+                        <p>Getting SIGTERM is optimal, but process may die in case of hardware failure</p>
+                        <p>In this case application should handle non-graceful terminations</p>
+                        <p>Can use robust job queue that automatically returns jobs after disconnect or timeout</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Servers in the cloud are super disposable</p>
+                        <p>Likelihood of failure is high, risk of failure should be low</p>
+                        <p>Auto scaling up and down, and reconfiguration is easy when processes are disposable</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>X. Dev/prod parity</h2>
+                        <blockquote>Keep development, staging, and production as similar as possible</blockquote>
+                    </section>
+                    <section>
+                        <h3>Three Gaps</h3>
+                        <p>Historical development gapped between dev and prod</p>
+                        <p>This prevented <strong>Continuous Deployment</strong></p>
+                        <ul>
+                            <li><strong>Time Gap</strong>: Long time for dev -&gt; prod</li>
+                            <li><strong>Personnel Gap</strong>: devs write, ops deploy</li>
+                            <li><strong>Tools Gap</strong>: local stack vs. prod stack</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Continuous Deployment</h3>
+                        <p>Keep the gaps small!</p>
+                        <ul>
+                            <li>Deploy code quickly</li>
+                            <li>Developers also deploy and manage</li>
+                            <li>Identical tools in dev and prod</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Backing Services</h3>
+                        <p>Adapters for backing services can be useful</p>
+                        <p>Adapters help with porting to different services easier</p>
+                        <p>Don't rely on adapters for dev/prod parity</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Keeping the gap between dev and prod small enables continuous deployment</p>
+                        <p>Features are released, bugs are found, and fixes are made faster</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>XI. Logs</h2>
+                        <blockquote>Treat logs as event streams</blockquote>
+                    </section>
+                    <section>
+                        <h3>Output stream</h3>
+                        <p>A twelve-factor app should write directly to <code>stdout</code></p>
+                        <p>Event stream is one event per line in text format</p>
+                        <p>App isn't concerned with routing or storage</p>
+                    </section>
+                    <section>
+                        <h3>Handling the Stream</h3>
+                        <p>Execution environment handles the event stream from the process</p>
+                        <p>In development, dev watches stdout in terminal</p>
+                        <p>In production, logs are captured by environment and written to file</p>
+                    </section>
+                    <section>
+                        <h3>Advanced Log Management</h3>
+                        <p>Logs can be piped to log indexing and analysis system</p>
+                        <p><a href="https://splunk.com/">Splunk</a> and <a href="https://sumologic.com/">SumoLogic</a> are examples</p>
+                        <p>Powerful analysis tools can show usage trends, common exceptions, and alert in special circumstances</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Good separation of concerns</p>
+                        <p>App is bogged down with managing log streams</p>
+                        <p>Enables use of powerful logging tools</p>
+                        <p>Increases portability of app because environment handles the logs</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>XII. Admin processes</h2>
+                        <blockquote>Run admin/management tasks as one-off processes</blockquote>
+                    </section>
+                    <section>
+                        <h3>Admin Work</h3>
+                        <p>Normal app business happens in the <em>process formation</em> set up by process manager</p>
+                        <p>DevOps might want to run admin or maintenance like:</p>
+                        <ul>
+                            <li>DB migration</li>
+                            <li>Run a REPL to inspect the app and environment</li>
+                            <li>Run a one-time script</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Environment</h3>
+                        <p>Admin processes should be run like other processes:</p>
+                        <ul>
+                            <li>Committed and bundled into release</li>
+                            <li>Run inside dependency isolation</li>
+                        </ul>
+                        <p>Twelve-Factor favours languages with a REPL which make admin easier</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Separate admin work from app increases reliability of app processes</p>
+                        <p>Bundling with release and isolating dependencies help ensure admin processes work everywhere the same</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Recap</h2>
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                            <tr>
+                                <td style="border-bottom: 0;">I. Codebase</td>
+                                <td style="border-bottom: 0;">VII. Port Binding</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">II. Dependencies</td>
+                                <td style="border-bottom: 0;">VIII. Concurrency</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">III. Config</td>
+                                <td style="border-bottom: 0;">IX. Disposability</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">IV. Backing Services</td>
+                                <td style="border-bottom: 0;">X. Dev/Prod Parity</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">V. Build, Release, Run</td>
+                                <td style="border-bottom: 0;">XI. Logs</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">VI. Processes</td>
+                                <td style="border-bottom: 0;">XII. Admin Processes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h2>Questions?</h2>
+                </section>
+                <section>
+                    <h2>Thanks!</h2>
+                    <p>This talk is available at <a href="https://noseworthy.github.io/">noseworthy.github.io</a></p>
                 </section>
             </div>
         </div>
