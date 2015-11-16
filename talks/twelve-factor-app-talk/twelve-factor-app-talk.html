@@ -44,7 +44,7 @@
             <div class="slides">
                 <section>
                     <h1>The Twelve-Factor App</h1>
-                    <h3>Build Modern, Saclable Web Apps</h3>
+                    <p>Build Modern, Scalable Web Apps</p>
                 </section>
                 <section>
                     <h2>Agenda</h2>
@@ -67,35 +67,42 @@
                     <section>
                         <h3>Origin</h3>
                         <p>
-                            Written in November, 2011 by Adam Wiggins, co-founder
-                            of Heroku
+                            <a data-flickr-embed="true"  href="https://www.flickr.com/photos/27467248@N07/6954030931/in/set-72157632546527310" title="IMG_0329">
+                                <img src="https://farm8.staticflickr.com/7198/6954030931_2d8e5d2a63_z.jpg" width="320" height="240" alt="IMG_0329">
+                            </a>
+                            <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                            <dl>
+                                <dt>Author</dt>
+                                <dd>Adam Wiggins</dd>
+                                <dt>Date</dt>
+                                <dd>November, 2011</dd>
+                            </dl>
                         </p>
-                        <p>Written as a methodology to:</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
                         <ul>
                             <li>Avoid common pitfalls when building cloud based SaaS apps</li>
-                            <li>Help people build apps that will work optimally on Heroku and other PaaS offerings</li>
+                            <li>Help people build apps for Heroku</li>
                         </ul>
                     </section>
                     <section>
-                        <h3>What <em>kind</em> of app does it encourage</h3>
-                        <p>Apps that:</p>
+                        <h3>Encourage Apps that:</h3>
                         <ul>
-                            <li>Use <strong>declarative formats</strong> for setup automation, to minimize time and cost for new developers joining the project</li>
-                            <li>Have a <strong>clean contract</strong> with the underlying operating system, offering <strong>maximum portability</strong> between execution environments</li>
+                            <li>Use <strong>declarative formats</strong> for setup automation, to minimize onboarding costs</li>
+                            <li>Have a <strong>clean contract</strong> with the OS, offering <strong>maximum portability</strong></li>
+                            <li>Are suitable for <strong>deployment</strong> on the <strong>cloud</strong></li>
+                            <li><strong>Minimize divergence</strong> between development and production enabling <strong>continuous deployment</strong></li>
+                            <li><strong>Scale up</strong> without significant changes</li>
                         </ul>
                     </section>
                     <section>
-                        <h3>What <em>kind</em> of app does it encourage</h3>
-                        <ul>
-                            <li>Are suitable for <strong>deployment</strong> on modern cloud platforms, obviating the need for servers and systems administration</li>
-                            <li><strong>Minimize divergence</strong> between development and production, enabling <strong>continuous deployment</strong> for maximum agility</li>
-                            <li>And can <strong>scale up</strong> without significant changes to tooling, architecture, or development practices</li>
-                        </ul>
+                        <h3>What about a Programming Language?</h3>
+                    </section>
+                    <section data-transition="slide" data-background-transition="zoom" data-background="./content/good-news-everyone.jpg">
                     </section>
                     <section>
-                        <h3>Programming Language?</h3>
-                        <p>Nope.</p>
-                        <p class="fragment">The Twelve-Factor App is language, platform, and toolset agnostic!</p>
+                        <h3>The Twelve-Factor App is language, platform, and toolset agnostic!</h3>
                     </section>
                 </section>
                 <section>
@@ -111,23 +118,22 @@
                     </section>
                     <section>
                         <h3>One Codebase</h3>
-                        <p>A twelve-factor app relates one-to-one with a single code base</p>
-                        <p class="fragment">Multiple code bases == Distributed System</p>
-                        <p class="fragment">Each app in a distributed system is a <em>tewlve-factor</em> app</p>
-                        <p class="fragment">... with it's own codebase</p>
+                        <p>One app per code base</p>
+                        <p>Multiple code bases == Distributed System</p>
+                        <p>Each app in a distributed system is a <em>tewlve-factor</em> app</p>
                     </section>
                     <section>
                         <h3>Tracked In Revision Control</h3>
                         <p>Code base <em>MUST</em> be tracked in reversion control</p>
-                        <p class="fragment">Allows for collaborative development</p>
-                        <p class="fragment">Recommend <strong>git</strong> but any revision control will do</p>
+                        <p>Allows for collaborative development</p>
+                        <p>Recommend <strong>git</strong> but any revision control will do</p>
                     </section>
                     <section>
                         <h3>Many Deploys</h3>
                         <p>Each running instance is a <strong>deploy</strong></p>
-                        <p class="fragment">Might have dev, test, and production deploys</p>
-                        <p class="fragment">Each running instance on a developer's machine is a deploy</p>
-                        <p class="fragment">Code base for each deploy is the same, but probably different versions and configuration</p>
+                        <p>Might have dev, test, and production deploys</p>
+                        <p>Each running instance on a developer's machine is a deploy</p>
+                        <p>Code base for each deploy is the same, but probably different versions and configuration</p>
                     </section>
                     <section>
                         <h3>Many Deploys</h3>
@@ -136,9 +142,9 @@
                     <section>
                         <h3>Why?</h3>
                         <p>Helps new developers become familiar by having single source</p>
-                        <p class="fragment">Eliminates compliations with dependencies on other source code</p>
-                        <p class="fragment">Deploys are easy because you just need one source repo</p>
-                        <p class="fragment">All the benefits of a revision control system</p>
+                        <p>Eliminates compliations with dependencies on other source code</p>
+                        <p>Deploys are easy because you just need one source repo</p>
+                        <p>All the benefits of a revision control system</p>
                     </section>
                 </section>
                 <section>
@@ -149,15 +155,15 @@
                     <section>
                         <h3>Explicitly Declare Dependencies</h3>
                         <p>Most programming languages have some sort of package manager</p>
-                        <p class="fragment">CPAN for perl, PyPI for python, npm for node.js, etc.</p>
-                        <p class="fragment">A twelve-factor app has dependencies (including version) declared in a <em>dependency manifest</em></p>
+                        <p>CPAN for perl, PyPI for python, npm for node.js, etc.</p>
+                        <p>A twelve-factor app has dependencies (including version) declared in a <em>dependency manifest</em></p>
                     </section>
                     <section>
                         <h3>Isolate Dependencies</h3>
                         <blockquote>A twelve-factor app never relies on implicit existence of system-wide packages</blockquote>
-                        <p class="fragment">Use a dependency isolation tool to ensure no leak</p>
-                        <p class="fragment"><em>Vendor</em> or <em>bundle</em> dependencies locally <em>with</em> the app</p>
-                        <p class="fragment">This includes "system" tools, don't expect <code>curl</code> to be installed everywhere!</p>
+                        <p>Use a dependency isolation tool to ensure no leak</p>
+                        <p><em>Vendor</em> or <em>bundle</em> dependencies locally <em>with</em> the app</p>
+                        <p>This includes "system" tools, don't expect <code>curl</code> to be installed everywhere!</p>
                     </section>
                     <section>
                         <h3>Why?</h3>
@@ -166,7 +172,7 @@
                             <li>Language runtime</li>
                             <li>Dependency manager</li>
                         </ol>
-                        <p class="fragment">Everything is set up with a declarative <code>build</code> command</p>
+                        <p>Everything is set up with a declarative <code>build</code> command</p>
                     </section>
                 </section>
                 <section>
@@ -177,17 +183,17 @@
                     <section>
                         <h3>What Is Config?</h3>
                         <blockquote>An app’s <em>config</em> is everything that is likely to vary between deploys</blockquote>
-                        <p class="fragment">For example:</p>
+                        <p>For example:</p>
                         <ul>
-                            <li class="fragment">Resource handles to backing services</li>
-                            <li class="fragment">Credentials and <em>secrets</em> to external services</li>
-                            <li class="fragment">Per-deploy values such as canonical hostname</li>
+                            <li>Resource handles to backing services</li>
+                            <li>Credentials and <em>secrets</em> to external services</li>
+                            <li>Per-deploy values such as canonical hostname</li>
                         </ul>
                     </section>
                     <section>
                         <h3>Where Not To Store Config</h3>
                         <p>A twelve-factor App <strong>never</strong> stores any config in the code base</p>
-                        <p class="fragment"><strong>Protip:</strong> If you can open source the codebase at any time and not comprimise yourself, you're probably good!</p>
+                        <p><strong>Protip:</strong> If you can open source the codebase at any time and not comprimise yourself, you're probably good!</p>
                     </section>
                     <section>
                         <h3>A (Slightly) Better Solution</h3>
@@ -207,20 +213,20 @@
                             <li style="list-style: none;"><strong>+</strong> Secure to the user of the running process</li>
                             <li style="list-style: none;"><strong>+</strong> Language and OS agnostic</li>
                         </ul>
-                        <p class="fragment">But how do you manage the config?</p>
+                        <p>But how do you manage the config?</p>
                     </section>
                     <section>
                         <h3>Addendum</h3>
                         <p><em>The Twelve-Factor App</em> doesn't talk much about this point</p>
-                        <p class="fragment">If you can't store secrets in version control, where do you store them?</p>
-                        <p class="fragment">Seperate secure/encrypted "vault" like 1password or truecrypt?</p>
-                        <p class="fragment">Tool to securely manage keys and config like <a href="https://docs.ansible.com/ansible/playbooks_vault.html">ansible-vault</a> or <a href="https://vaultproject.io/">Hashicorp Vault</a>?</p>
+                        <p>If you can't store secrets in version control, where do you store them?</p>
+                        <p>Seperate secure/encrypted "vault" like 1password or truecrypt?</p>
+                        <p>Tool to securely manage keys and config like <a href="https://docs.ansible.com/ansible/playbooks_vault.html">ansible-vault</a> or <a href="https://vaultproject.io/">Hashicorp Vault</a>?</p>
                     </section>
                     <section>
                         <h3>Why?</h3>
                         <p>Security</p>
-                        <p class="fragment">Scalability</p>
-                        <p class="fragment">Separation of deploy targets config</p>
+                        <p>Scalability</p>
+                        <p>Separation of deploy targets config</p>
                     </section>
                 </section>
                 <section>
@@ -232,23 +238,22 @@
                         <h3>Backing Service</h3>
                         <p>A backing service is any service the app consumes over a network</p>
                         <ul>
-                            <li class="fragment">Database</li>
-                            <li class="fragment">Caching service</li>
-                            <li class="fragment">Queuing services</li>
-                            <li class="fragment">SMTP services</li>
+                            <li>Database</li>
+                            <li>Caching service</li>
+                            <li>Queuing services</li>
+                            <li>SMTP services</li>
                         </ul>
                     </section>
                     <section>
                         <h3>Local vs. Remote</h3>
                         <p>A twelve-factor app makes no distinction of local, remote, or third-party services</p>
-                        <p class="fragment">It treats all the same and accesses them using a URI specified in config</p>
-                        <p class="fragment">Should be able to swap out services without any code changes</p>
+                        <p>It treats all the same and accesses them using a URI specified in config</p>
+                        <p>Should be able to swap out services without any code changes</p>
                     </section>
                     <section>
                         <h3>Why?</h3>
                         <p>Makes managing multiple deploy targets or environment easier</p>
-                        <p class="fragment">Hot-swapping of services without code change</p>
-                        <p class="fragment">e.g. A database gets corrupted, spin up new one based on backup, swap with config change</p>
+                        <p>Hot-swapping of services without code change</p>
                     </section>
                 </section>
                 <section>
@@ -258,50 +263,50 @@
                     </section>
                     <section>
                         <h3>Deploy</h3>
-                        <p>A non-production deploy is created in three separate stages</p>
+                        <p>Non-production deploy is created in three stages</p>
                     </section>
                     <section>
                         <h3>Build</h3>
-                        <p>Transforms a code base into an executable</p>
-                        <p class="fragment">Compilation of binaries and assets</p>
-                        <p class="fragment">Vendoring of dependencies</p>
-                        <p class="fragment">Bundles together into a <em>build</em></p>
+                        <p>Transforms code base into an executable</p>
+                        <p>Compilation of binaries and assets</p>
+                        <p>Vendoring of dependencies</p>
+                        <p>Bundles together into a <em>build</em></p>
                     </section>
                     <section>
                         <h3>Release</h3>
                         <p>Combines build with config for the deploy target into a <em>release</em></p>
-                        <p class="fragment">Resulting release is ready for execution on target</p>
+                        <p>Resulting release is ready for execution on target</p>
                     </section>
                     <section>
                         <h3>Run</h3>
                         <p>Runs the app in the execution environment on the target</p>
-                        <p class="fragment">Launches the <em>release</em> as a set of <em>processes</em></p>
+                        <p>Launches the <em>release</em> as a set of <em>processes</em></p>
                     </section>
                     <section>
                         <h3>Strict Separation</h3>
                         <blockquote>The twelve-factor app uses strict separation between the build, release, and run stages</blockquote>
-                        <p class="fragment">Can't change code at runtime or release time</p>
+                        <p>Can't change code at runtime or release time</p>
                     </section>
                     <section>
                         <h3>Release Management</h3>
-                        <p>Sort of an aside to <em>The Twelve-Factor App</em></p>
-                        <p class="fragment">Some build tools manage releases</p>
-                        <p class="fragment">Releases are tagged with incrementing version number or timestamp</p>
-                        <p class="fragment">Current release is symlinked, rollback is easy, just change symlink</p>
+                        <p>An aside to <em>The Twelve-Factor App</em></p>
+                        <p>Some build tools manage releases</p>
+                        <p>Releases are tagged with incrementing version number or timestamp</p>
+                        <p>Current release is symlinked, rollback is easy, just change symlink</p>
                     </section>
                     <section>
                         <h3>Build vs. Runtime</h3>
                         <p>Builds are done by DevOps performing the deploy</p>
-                        <p class="fragment">Runtime execution can happen automatically after a reboot or when a process manager restarts after a crash</p>
-                        <p class="fragment">Runtime should therefore be as simple as possible, while builds can be more complex</p>
+                        <p>Runtime execution can happen automatically after a reboot or when a process manager restarts after a crash</p>
+                        <p>Runtime should therefore be as simple as possible, while builds can be more complex</p>
                     </section>
                     <section>
                         <h3>Why?</h3>
                         <p>Improved uptime by:</p>
                         <ul>
-                            <li class="fragment">Separation of steps == consistency</li>
-                            <li class="fragment">Easy rollback to previous version</li>
-                            <li class="fragment">Simple runtime steps ensure easy restarts in the middle of the night</li>
+                            <li>Separation of steps == consistency</li>
+                            <li>Easy rollback to previous version</li>
+                            <li>Simple runtime steps ensure easy restarts in the middle of the night</li>
                         </ul>
                     </section>
                 </section>
@@ -312,20 +317,20 @@
                     </section>
                     <section>
                         <h3>Unix Process Model</h3>
-                        <p>An app runs in an environment as one or more managed processes</p>
+                        <p>Runs in environment as one or more <em>managed processes</em></p>
                         <p>Managed processes: Start at bootup, restart automatically when needed</p>
                         <p>Can use things like upstart, init, foreman, etc. </p>
                     </section>
                     <section>
                         <h3>Stateless</h3>
                         <p>App processes are stateless and share nothing</p>
-                        <p>All persistent data should be stored in a backing service</p>
+                        <p>Persistent data should be stored in a backing service</p>
                         <p>Memory space and filesystem can act as single transaction cache</p>
                     </section>
                     <section>
                         <h3>Sticky Sessions</h3>
                         <p>Some apps use <em>sticky sessions</em></p>
-                        <p>Sticky sessions break twelve-factor and should not be used</p>
+                        <p>Sticky sessions break twelve-factor and <strong>should not</strong> be used</p>
                         <p>Any session data should be in backing service with data expiry</p>
                     </section>
                     <section>
@@ -342,11 +347,7 @@
                         <h3>Completely Self Contained</h3>
                         <p>A twelve-factor app is not run inside a web server container</p>
                         <p>A twelve-factor app <strong>exports HTTP as a service by binding to a port</strong></p>
-                    </section>
-                    <section>
-                        <h3>Dependency Injection</h3>
-                        <p>Use declaritive dependency injection include a web server library</p>
-                        <p>Done in <em>user space</em> inside the app</p>
+                        <p>Use a small, lightweight http server library dependency</p>
                     </section>
                     <section>
                         <h3>Backing Services</h3>
@@ -491,7 +492,7 @@
                     <section>
                         <h3>Why?</h3>
                         <p>Good separation of concerns</p>
-                        <p>App is bogged down with managing log streams</p>
+                        <p>App isn't bogged down with managing log streams</p>
                         <p>Enables use of powerful logging tools</p>
                         <p>Increases portability of app because environment handles the logs</p>
                     </section>
