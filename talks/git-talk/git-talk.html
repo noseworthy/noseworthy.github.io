@@ -113,7 +113,7 @@
                         <h3>The Name</h3>
                         <p>Why call it git</p>
                         <p>British slang for "an unpleasant person"</p>
-                        <p><blockquote>"I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."</blockquote>
+                        <blockquote>"I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git'."</blockquote>
                     </section>
                 </section>
 
@@ -202,8 +202,7 @@
                                 Configure git options globally or locally
                             </dd>
                         </dl>
-                        <p>
-                        First git commands are usually:
+                        <p>First git commands are usually:</p>
                         <pre><code>$ git config --global user.name "YOUR NAME"</code></pre>
                         <pre><code>$ git config --global user.email "YOUR EMAIL ADDRESS"</code></pre>
                     </section>
@@ -236,9 +235,8 @@
                                 Clone a remote repo and download locally
                             </dd>
                         </dl>
-                        <p>
                         <br />
-                        Clone from github:
+                        <p>Clone from github:</p>
                         <pre><code>$ git clone git@github.com:hakimel/reveal.js.git</code></pre>
                     </section>
                     <section>
@@ -251,9 +249,8 @@
                                 Create, list or delete branches
                             </dd>
                         </dl>
-                        <p>
                         <br />
-                        Create a branch:
+                        <p>Create a branch:</p>
                         <pre><code>$ git branch BRANCH_NAME</code></pre>
                         Delete a branch:
                         <pre><code>$ git branch -d BRANCH_NAME</code></pre>
@@ -272,9 +269,8 @@
                                 Switch between branches
                             </dd>
                         </dl>
-                        <p>
                         <br />
-                        Switch to a feature branch:
+                        <p>Switch to a feature branch:</p>
                         <pre><code>$ git checkout FEATURE_BRANCH_NAME</code></pre>
                         Switch back to master:
                         <pre><code>$ git checkout master</code></pre>
@@ -293,9 +289,8 @@
                                 Add file contents to the <em>index</em> or <em>staging</em> area
                             </dd>
                         </dl>
-                        <p>
                         <br />
-                        Add a specific file:
+                        <p>Add a specific file:</p>
                         <pre><code>$ git add path/to/file</code></pre>
                         Add everything:
                         <pre><code>$ git add .</code></pre>
@@ -310,9 +305,8 @@
                                 Commit changes staged in index to current branch
                             </dd>
                         </dl>
-                        <p>
                         <br />
-                        Launch editor to write commit message and commit on save:
+                        <p>Launch editor to write commit message and commit on save:</p>
                         <pre><code>$ git commit</code></pre>
                         Add changes from any tracked files and commit:
                         <pre><code>$ git commit -a</code></pre>
@@ -331,9 +325,8 @@
                                 <em>Fetch</em> changes (new commits, branches, tags, etc.) from a remote but don't merge
                             </dd>
                         </dl>
-                        <p>
                         <br />
-                        Fetch from remote origin:
+                        <p>Fetch from remote origin:</p>
                         <pre><code>$ git fetch origin</code></pre>
                     </section>
 
@@ -343,7 +336,6 @@
                             <dt><em>git status</em></dt>
                             <dd>Check the status (modified, staged, deleted, etc.) of files in the working copy</dd>
                         </dl>
-                        <p>
                         <br />
                         <pre><code>$ git status</code></pre>
                     </section>
@@ -353,9 +345,8 @@
                             <dt><em>git log</em></dt>
                             <dd>Show commit history of this branch</dd>
                         </dl>
-                        <p>
                         <br />
-                        Just show a history of commits on this branch:
+                        <p>Just show a history of commits on this branch:</p>
                         <pre><code>$ git log</code></pre>
                         Show log by author:
                         <pre><code>$ git log --author=user@domain.com</code></pre>
@@ -372,9 +363,8 @@
                                 <em>Merge</em> changes from a branch to current branch
                             </dd>
                         </dl>
-                        <p>
                         <br />
-                        Merge changes from a feature branch:
+                        <p>Merge changes from a feature branch:</p>
                         <pre><code>$ git merge FEATURE_BRANCH_NAME</code></pre>
                     </section>
                     <section>
@@ -387,9 +377,8 @@
                                 Perform a fetch and then a merge in one step, more common than fetch or merge alone
                             </dd>
                         </dl>
-                        <p>
                         <br />
-                        Pull changes from a remote master branch at the origin:
+                        <p>Pull changes from a remote master branch at the origin:</p>
                         <pre><code>$ git pull origin master</code></pre>
                     </section>
                     <section>
@@ -402,9 +391,8 @@
                                 Push a branch to a remote, creating the branch if it doesn't already exist
                             </dd>
                         </dl>
-                        <p>
-                            <br />
-                            Push a feature branch to the origin:
+                        <br />
+                        <p>Push a feature branch to the origin:</p>
                             <pre><code>$ git push origin FEATURE_BRANCH</code></pre>
                         <p class="fragment">
                             You can set other remotes to push to and pull from, but that is outside the scope of this talk and not very common outside of OSS
@@ -529,7 +517,7 @@
                         </p>
                         <p class="fragment">
                             Create branches off of the dev branch to do edits and merge feature branches back into dev
-                        <p>
+                        </p>
                     </section>
                 </section>
                 <section>
