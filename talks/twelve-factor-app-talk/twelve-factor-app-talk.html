@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>The Twelve-Factor App</title>
+        <meta name="description" content="The Twelve-Factor App Talk">
+        <meta name="author" content="Michael Noseworthy">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="../../css/reveal.css">
+        <link rel="stylesheet" href="../../css/theme/blood.css" id="theme">
+
+        <script src="../../js/reveal.js"></script>
+        <script src="../../lib/js/head.min.js"></script>
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+        <!-- Font-Awesome! -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="../../lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>The Twelve-Factor App</h1>
+                    <p>Build Modern, Scalable Web Apps</p>
+                </section>
+                <section>
+                    <h2>Agenda</h2>
+                    <ul>
+                        <li>
+                            Background
+                        </li>
+                        <li>
+                            The Twelve Factors
+                        </li>
+                        <li>
+                            Question Time!
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h2>Background</h2>
+                    </section>
+                    <section>
+                        <h3>Origin</h3>
+                        <p>
+                            <a data-flickr-embed="true"  href="https://www.flickr.com/photos/27467248@N07/6954030931/in/set-72157632546527310" title="IMG_0329">
+                                <img src="https://farm8.staticflickr.com/7198/6954030931_2d8e5d2a63_z.jpg" width="320" height="240" alt="IMG_0329">
+                            </a>
+                            <script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+                            <dl>
+                                <dt>Author</dt>
+                                <dd>Adam Wiggins</dd>
+                                <dt>Date</dt>
+                                <dd>November, 2011</dd>
+                            </dl>
+                        </p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <ul>
+                            <li>Avoid common pitfalls when building cloud based SaaS apps</li>
+                            <li>Help people build apps for Heroku</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Encourage Apps that:</h3>
+                        <ul>
+                            <li>Use <strong>declarative formats</strong> for setup automation, to minimize onboarding costs</li>
+                            <li>Have a <strong>clean contract</strong> with the OS, offering <strong>maximum portability</strong></li>
+                            <li>Are suitable for <strong>deployment</strong> on the <strong>cloud</strong></li>
+                            <li><strong>Minimize divergence</strong> between development and production enabling <strong>continuous deployment</strong></li>
+                            <li><strong>Scale up</strong> without significant changes</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>What about a Programming Language?</h3>
+                    </section>
+                    <section data-transition="slide" data-background-transition="zoom" data-background="./content/good-news-everyone.jpg">
+                    </section>
+                    <section>
+                        <h3>The Twelve-Factor App is language, platform, and toolset agnostic!</h3>
+                    </section>
+                </section>
+                <section>
+                    <h2>The Twelve Factors</h2>
+                    <p>Finally! Why we're all here!</p>
+                </section>
+                <section>
+                    <section>
+                        <h2>I. Codebase</h2>
+                        <blockquote>
+                            One codebase tracked in revision control, many deploys
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h3>One Codebase</h3>
+                        <p>One app per code base</p>
+                        <p>Multiple code bases == Distributed System</p>
+                        <p>Each app in a distributed system is a <em>tewlve-factor</em> app</p>
+                    </section>
+                    <section>
+                        <h3>Tracked In Revision Control</h3>
+                        <p>Code base <em>MUST</em> be tracked in reversion control</p>
+                        <p>Allows for collaborative development</p>
+                        <p>Recommend <strong>git</strong> but any revision control will do</p>
+                    </section>
+                    <section>
+                        <h3>Many Deploys</h3>
+                        <p>Each running instance is a <strong>deploy</strong></p>
+                        <p>Might have dev, test, and production deploys</p>
+                        <p>Each running instance on a developer's machine is a deploy</p>
+                        <p>Code base for each deploy is the same, but probably different versions and configuration</p>
+                    </section>
+                    <section>
+                        <h3>Many Deploys</h3>
+                        <img alt="Many Deploy Diagram" style="border: none; box-shadow: none;" src="./content/codebase-deploys.svg">
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Helps new developers become familiar by having single source</p>
+                        <p>Eliminates compliations with dependencies on other source code</p>
+                        <p>Deploys are easy because you just need one source repo</p>
+                        <p>All the benefits of a revision control system</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>II. Dependencies</h2>
+                        <blockquote>Explicitly declare and isolate dependencies</blockquote>
+                    </section>
+                    <section>
+                        <h3>Explicitly Declare Dependencies</h3>
+                        <p>Most programming languages have some sort of package manager</p>
+                        <p>CPAN for perl, PyPI for python, npm for node.js, etc.</p>
+                        <p>A twelve-factor app has dependencies (including version) declared in a <em>dependency manifest</em></p>
+                    </section>
+                    <section>
+                        <h3>Isolate Dependencies</h3>
+                        <blockquote>A twelve-factor app never relies on implicit existence of system-wide packages</blockquote>
+                        <p>Use a dependency isolation tool to ensure no leak</p>
+                        <p><em>Vendor</em> or <em>bundle</em> dependencies locally <em>with</em> the app</p>
+                        <p>This includes "system" tools, don't expect <code>curl</code> to be installed everywhere!</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Helps new developers because all they need is:</p>
+                        <ol>
+                            <li>Language runtime</li>
+                            <li>Dependency manager</li>
+                        </ol>
+                        <p>Everything is set up with a declarative <code>build</code> command</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>III. Config</h2>
+                        <blockquote>Store Config In The Environment</blockquote>
+                    </section>
+                    <section>
+                        <h3>What Is Config?</h3>
+                        <blockquote>An app’s <em>config</em> is everything that is likely to vary between deploys</blockquote>
+                        <p>For example:</p>
+                        <ul>
+                            <li>Resource handles to backing services</li>
+                            <li>Credentials and <em>secrets</em> to external services</li>
+                            <li>Per-deploy values such as canonical hostname</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Where Not To Store Config</h3>
+                        <p>A twelve-factor App <strong>never</strong> stores any config in the code base</p>
+                        <p><strong>Protip:</strong> If you can open source the codebase at any time and not comprimise yourself, you're probably good!</p>
+                    </section>
+                    <section>
+                        <h3>A (Slightly) Better Solution</h3>
+                        <p><em>Unversioned</em> config file</p>
+                        <ul>
+                            <li style="list-style: none;"><strong>+</strong> Outside of reversion control</li>
+                            <li style="list-style: none;"><strong>-</strong> Difficult to manage multiple deploy targets</li>
+                            <li style="list-style: none;"><strong>-</strong> Easy to accidentally commit to revision control</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Best Solution</h3>
+                        <p>Store config in environment variables</p>
+                        <ul>
+                            <li style="list-style: none;"><strong>+</strong> Outside of reversion control</li>
+                            <li style="list-style: none;"><strong>+</strong> Set at deploy time based on deploy target</li>
+                            <li style="list-style: none;"><strong>+</strong> Secure to the user of the running process</li>
+                            <li style="list-style: none;"><strong>+</strong> Language and OS agnostic</li>
+                        </ul>
+                        <p>But how do you manage the config?</p>
+                    </section>
+                    <section>
+                        <h3>Addendum</h3>
+                        <p><em>The Twelve-Factor App</em> doesn't talk much about this point</p>
+                        <p>If you can't store secrets in version control, where do you store them?</p>
+                        <p>Seperate secure/encrypted "vault" like 1password or truecrypt?</p>
+                        <p>Tool to securely manage keys and config like <a href="https://docs.ansible.com/ansible/playbooks_vault.html">ansible-vault</a> or <a href="https://vaultproject.io/">Hashicorp Vault</a>?</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Security</p>
+                        <p>Scalability</p>
+                        <p>Separation of deploy targets config</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>IV. Backing Services</h2>
+                        <blockquote>Treat backing services as attached resources</blockquote>
+                    </section>
+                    <section>
+                        <h3>Backing Service</h3>
+                        <p>A backing service is any service the app consumes over a network</p>
+                        <ul>
+                            <li>Database</li>
+                            <li>Caching service</li>
+                            <li>Queuing services</li>
+                            <li>SMTP services</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Local vs. Remote</h3>
+                        <p>A twelve-factor app makes no distinction of local, remote, or third-party services</p>
+                        <p>It treats all the same and accesses them using a URI specified in config</p>
+                        <p>Should be able to swap out services without any code changes</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Makes managing multiple deploy targets or environment easier</p>
+                        <p>Hot-swapping of services without code change</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>V. Build, release, run</h2>
+                        <blockquote>Strictly separate build and run stages</blockquote>
+                    </section>
+                    <section>
+                        <h3>Deploy</h3>
+                        <p>Non-production deploy is created in three stages</p>
+                    </section>
+                    <section>
+                        <h3>Build</h3>
+                        <p>Transforms code base into an executable</p>
+                        <p>Compilation of binaries and assets</p>
+                        <p>Vendoring of dependencies</p>
+                        <p>Bundles together into a <em>build</em></p>
+                    </section>
+                    <section>
+                        <h3>Release</h3>
+                        <p>Combines build with config for the deploy target into a <em>release</em></p>
+                        <p>Resulting release is ready for execution on target</p>
+                    </section>
+                    <section>
+                        <h3>Run</h3>
+                        <p>Runs the app in the execution environment on the target</p>
+                        <p>Launches the <em>release</em> as a set of <em>processes</em></p>
+                    </section>
+                    <section>
+                        <h3>Strict Separation</h3>
+                        <blockquote>The twelve-factor app uses strict separation between the build, release, and run stages</blockquote>
+                        <p>Can't change code at runtime or release time</p>
+                    </section>
+                    <section>
+                        <h3>Release Management</h3>
+                        <p>An aside to <em>The Twelve-Factor App</em></p>
+                        <p>Some build tools manage releases</p>
+                        <p>Releases are tagged with incrementing version number or timestamp</p>
+                        <p>Current release is symlinked, rollback is easy, just change symlink</p>
+                    </section>
+                    <section>
+                        <h3>Build vs. Runtime</h3>
+                        <p>Builds are done by DevOps performing the deploy</p>
+                        <p>Runtime execution can happen automatically after a reboot or when a process manager restarts after a crash</p>
+                        <p>Runtime should therefore be as simple as possible, while builds can be more complex</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Improved uptime by:</p>
+                        <ul>
+                            <li>Separation of steps == consistency</li>
+                            <li>Easy rollback to previous version</li>
+                            <li>Simple runtime steps ensure easy restarts in the middle of the night</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>VI. Processes</h2>
+                        <blockquote>Execute the app as one or more stateless processes</blockquote>
+                    </section>
+                    <section>
+                        <h3>Unix Process Model</h3>
+                        <p>Runs in environment as one or more <em>managed processes</em></p>
+                        <p>Managed processes: Start at bootup, restart automatically when needed</p>
+                        <p>Can use things like upstart, init, foreman, etc. </p>
+                    </section>
+                    <section>
+                        <h3>Stateless</h3>
+                        <p>App processes are stateless and share nothing</p>
+                        <p>Persistent data should be stored in a backing service</p>
+                        <p>Memory space and filesystem can act as single transaction cache</p>
+                    </section>
+                    <section>
+                        <h3>Sticky Sessions</h3>
+                        <p>Some apps use <em>sticky sessions</em></p>
+                        <p>Sticky sessions break twelve-factor and <strong>should not</strong> be used</p>
+                        <p>Any session data should be in backing service with data expiry</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Allows scalability and composability since processes are stateless</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>VII. Port binding</h2>
+                        <blockquote>Export services via port binding</blockquote>
+                    </section>
+                    <section>
+                        <h3>Completely Self Contained</h3>
+                        <p>A twelve-factor app is not run inside a web server container</p>
+                        <p>A twelve-factor app <strong>exports HTTP as a service by binding to a port</strong></p>
+                        <p>Use a small, lightweight http server library dependency</p>
+                    </section>
+                    <section>
+                        <h3>Backing Services</h3>
+                        <p>By binding to ports, the app can be a backing service for another app</p>
+                        <p>Just specify url and port in configuration to chain together</p>
+                        <p>Any protocol can be exported via port binding, not just HTTP</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Composability</p>
+                        <p>Each app is a separate self containted entity</p>
+                        <p>We can compose a larger app by using other apps as backing services</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>VIII. Concurrency</h2>
+                        <blockquote>Scale out via the process model</blockquote>
+                    </section>
+                    <section>
+                        <h3>Unix Process Model</h3>
+                        <p>Thanks to factors VI and VII scaling should be easy</p>
+                        <p>Processes are independent and composable</p>
+                        <p>Architect for diverse workloads using <em>process types</em></p>
+                        <p>Shouldn't self daemonize, use OS process manager</p>
+                    </section>
+                    <section>
+                        <h3>Scaling Up And Out!</h3>
+                        <p>Add processes to increase concurrency</p>
+                        <p>Add process types to increase process diversity</p>
+                        <p>Add machines to scale horizontally</p>
+                        <img alt="Scaling Process Diagram" style="border: none; box-shadow: none;" src="./content/process-model.svg">
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>IX. Disposability</h2>
+                        <blockquote>Maximize robustness with fast startup and graceful shutdown</blockquote>
+                    </section>
+                    <section>
+                        <h3>Processes Are Disposable</h3>
+                        <p>Should <strong>minimize startup time</strong></p>
+                        <p>Can be started, stopped or restarted at a moments notice</p>
+                        <p>Helps with scaling, config changes, and fast deploys</p>
+                        <p>Process manager handles all of this for you</p>
+                    </section>
+                    <section>
+                        <h3>Graceful Shutdown</h3>
+                        <p>Processes should gracefully shutdown on <strong>SIGTERM</strong> from process manager</p>
+                    </section>
+                    <section>
+                        <h3>Web Processes</h3>
+                        <p>Graceful shutdown means:</p>
+                        <ul>
+                            <li>Stops listening to port</li>
+                            <li>Finishes current requests</li>
+                            <li>Shutdown</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Worker Processes</h3>
+                        <p>Graceful shutdown means:</p>
+                        <ul>
+                            <li>Stops accepting jobs</li>
+                            <li>Returns current job to job queue</li>
+                            <li>Locks are released</li>
+                            <li>Shutdown</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Robust to Sudden Death</h3>
+                        <p>Getting SIGTERM is optimal, but process may die in case of hardware failure</p>
+                        <p>In this case application should handle non-graceful terminations</p>
+                        <p>Can use robust job queue that automatically returns jobs after disconnect or timeout</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Servers in the cloud are super disposable</p>
+                        <p>Likelihood of failure is high, risk of failure should be low</p>
+                        <p>Auto scaling up and down, and reconfiguration is easy when processes are disposable</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>X. Dev/prod parity</h2>
+                        <blockquote>Keep development, staging, and production as similar as possible</blockquote>
+                    </section>
+                    <section>
+                        <h3>Three Gaps</h3>
+                        <p>Historical development gapped between dev and prod</p>
+                        <p>This prevented <strong>Continuous Deployment</strong></p>
+                        <ul>
+                            <li><strong>Time Gap</strong>: Long time for dev -&gt; prod</li>
+                            <li><strong>Personnel Gap</strong>: devs write, ops deploy</li>
+                            <li><strong>Tools Gap</strong>: local stack vs. prod stack</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Continuous Deployment</h3>
+                        <p>Keep the gaps small!</p>
+                        <ul>
+                            <li>Deploy code quickly</li>
+                            <li>Developers also deploy and manage</li>
+                            <li>Identical tools in dev and prod</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Backing Services</h3>
+                        <p>Adapters for backing services can be useful</p>
+                        <p>Adapters help with porting to different services easier</p>
+                        <p>Don't rely on adapters for dev/prod parity</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Keeping the gap between dev and prod small enables continuous deployment</p>
+                        <p>Features are released, bugs are found, and fixes are made faster</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>XI. Logs</h2>
+                        <blockquote>Treat logs as event streams</blockquote>
+                    </section>
+                    <section>
+                        <h3>Output stream</h3>
+                        <p>A twelve-factor app should write directly to <code>stdout</code></p>
+                        <p>Event stream is one event per line in text format</p>
+                        <p>App isn't concerned with routing or storage</p>
+                    </section>
+                    <section>
+                        <h3>Handling the Stream</h3>
+                        <p>Execution environment handles the event stream from the process</p>
+                        <p>In development, dev watches stdout in terminal</p>
+                        <p>In production, logs are captured by environment and written to file</p>
+                    </section>
+                    <section>
+                        <h3>Advanced Log Management</h3>
+                        <p>Logs can be piped to log indexing and analysis system</p>
+                        <p><a href="https://splunk.com/">Splunk</a> and <a href="https://sumologic.com/">SumoLogic</a> are examples</p>
+                        <p>Powerful analysis tools can show usage trends, common exceptions, and alert in special circumstances</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Good separation of concerns</p>
+                        <p>App isn't bogged down with managing log streams</p>
+                        <p>Enables use of powerful logging tools</p>
+                        <p>Increases portability of app because environment handles the logs</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>XII. Admin processes</h2>
+                        <blockquote>Run admin/management tasks as one-off processes</blockquote>
+                    </section>
+                    <section>
+                        <h3>Admin Work</h3>
+                        <p>Normal app business happens in the <em>process formation</em> set up by process manager</p>
+                        <p>DevOps might want to run admin or maintenance like:</p>
+                        <ul>
+                            <li>DB migration</li>
+                            <li>Run a REPL to inspect the app and environment</li>
+                            <li>Run a one-time script</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Environment</h3>
+                        <p>Admin processes should be run like other processes:</p>
+                        <ul>
+                            <li>Committed and bundled into release</li>
+                            <li>Run inside dependency isolation</li>
+                        </ul>
+                        <p>Twelve-Factor favours languages with a REPL which make admin easier</p>
+                    </section>
+                    <section>
+                        <h3>Why?</h3>
+                        <p>Separate admin work from app increases reliability of app processes</p>
+                        <p>Bundling with release and isolating dependencies help ensure admin processes work everywhere the same</p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Recap</h2>
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                            <tr>
+                                <td style="border-bottom: 0;">I. Codebase</td>
+                                <td style="border-bottom: 0;">VII. Port Binding</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">II. Dependencies</td>
+                                <td style="border-bottom: 0;">VIII. Concurrency</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">III. Config</td>
+                                <td style="border-bottom: 0;">IX. Disposability</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">IV. Backing Services</td>
+                                <td style="border-bottom: 0;">X. Dev/Prod Parity</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">V. Build, Release, Run</td>
+                                <td style="border-bottom: 0;">XI. Logs</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">VI. Processes</td>
+                                <td style="border-bottom: 0;">XII. Admin Processes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h2>Questions?</h2>
+                </section>
+                <section>
+                    <h2>Thanks!</h2>
+                    <p>This talk is available at <a href="https://noseworthy.github.io/">noseworthy.github.io</a></p>
+                </section>
+            </div>
+        </div>
+        <script>
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../../plugin/zoom-js/zoom.js', async: true },
+                    { src: '../../plugin/notes/notes.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>
