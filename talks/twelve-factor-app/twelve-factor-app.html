@@ -65,7 +65,22 @@
                         <h2>Background</h2>
                     </section>
                     <section>
-                        <h3>Origin</h3>
+                        <h3>What is it?</h3>
+                        <p>Methodology to build web apps that:</p>
+                        <ul>
+                            <li>Use <strong>declarative formats</strong> for setup automation, to minimize onboarding costs</li>
+                            <li>Have a <strong>clean contract</strong> with the OS, offering <strong>maximum portability</strong></li>
+                            <li>Are suitable for <strong>deployment</strong> on the <strong>cloud</strong></li>
+                            <li><strong>Minimize divergence</strong> between development and production enabling <strong>continuous deployment</strong></li>
+                            <li><strong>Scale up</strong> without significant changes</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>In other words...</h3>
+                        <p>Scalable, cloud based web applications!</p>
+                    </section>
+                    <section>
+                        <h3>Who wrote it?</h3>
                         <a data-flickr-embed="true"  href="https://www.flickr.com/photos/27467248@N07/6954030931/in/set-72157632546527310" title="IMG_0329">
                             <img src="https://farm8.staticflickr.com/7198/6954030931_2d8e5d2a63_z.jpg" width="320" height="240" alt="IMG_0329">
                         </a>
@@ -85,27 +100,47 @@
                         </ul>
                     </section>
                     <section>
-                        <h3>Encourage Apps that:</h3>
-                        <ul>
-                            <li>Use <strong>declarative formats</strong> for setup automation, to minimize onboarding costs</li>
-                            <li>Have a <strong>clean contract</strong> with the OS, offering <strong>maximum portability</strong></li>
-                            <li>Are suitable for <strong>deployment</strong> on the <strong>cloud</strong></li>
-                            <li><strong>Minimize divergence</strong> between development and production enabling <strong>continuous deployment</strong></li>
-                            <li><strong>Scale up</strong> without significant changes</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h3>What about a Programming Language?</h3>
+                        <h3>But does it apply to me?</h3>
                     </section>
                     <section data-transition="slide" data-background-transition="zoom" data-background="./content/good-news-everyone.jpg">
                     </section>
                     <section>
-                        <h3>The Twelve-Factor App is language, platform, and toolset agnostic!</h3>
+                        <h3>It does!</h3>
+                        <p class="fragment">... As long as you're building a web app</p>
+                        <p class="fragment">The Twelve-Factor App is language, platform, and toolset agnostic!</p>
                     </section>
                 </section>
                 <section>
                     <h2>The Twelve Factors</h2>
-                    <p>Finally! Why we're all here!</p>
+                    <table>
+                        <thead></thead>
+                        <tbody>
+                            <tr>
+                                <td style="border-bottom: 0;">I. Codebase</td>
+                                <td style="border-bottom: 0;">VII. Port Binding</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">II. Dependencies</td>
+                                <td style="border-bottom: 0;">VIII. Concurrency</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">III. Config</td>
+                                <td style="border-bottom: 0;">IX. Disposability</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">IV. Backing Services</td>
+                                <td style="border-bottom: 0;">X. Dev/Prod Parity</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">V. Build, Release, Run</td>
+                                <td style="border-bottom: 0;">XI. Logs</td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 0;">VI. Processes</td>
+                                <td style="border-bottom: 0;">XII. Admin Processes</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
                 <section>
                     <section>
@@ -191,7 +226,7 @@
                     <section>
                         <h3>Where Not To Store Config</h3>
                         <p>A twelve-factor App <strong>never</strong> stores any config in the code base</p>
-                        <p><strong>Protip:</strong> If you can open source the codebase at any time and not comprimise yourself, you're probably good!</p>
+                        <p><strong>Protip:</strong> If you can open source the codebase at any time and not compromise yourself, you're probably good!</p>
                     </section>
                     <section>
                         <h3>A (Slightly) Better Solution</h3>
@@ -211,7 +246,7 @@
                             <li style="list-style: none;"><strong>+</strong> Secure to the user of the running process</li>
                             <li style="list-style: none;"><strong>+</strong> Language and OS agnostic</li>
                         </ul>
-                        <p>But how do you manage the config?</p>
+                        <p class="fragment">But how do you manage the config?</p>
                     </section>
                     <section>
                         <h3>Addendum</h3>
