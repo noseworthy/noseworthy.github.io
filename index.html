@@ -47,15 +47,8 @@
                         <div class="row">
                             <h1 class="cover-heading">Welcome!</h1>
                             <p class="lead">
-                                I'm a software developer from Mount Pearl, NL and
-                                co-founder of <a title="NDev" href="http://meetup.ndev.co/">NDev</a> -
+                                I'm a software developer, triathlete, and co-founder of <a title="NDev" href="http://meetup.ndev.co/">NDev</a> -
                                 A software developer community on the east coast.
-                            </p>
-                            <p class="lead">
-                                I'm also an avid triathlete who loves to train
-                                and compete in all triathlon distances. My next
-                                big race is the Ironman European Championships
-                                in Frankfurt, Germany in 2016!
                             </p>
                         </div>
 
@@ -108,6 +101,12 @@
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+        <script>
+            (function() {
+                if (!window.jQuery) {
+                     document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>');
+                }
+            })();
+        </script>
     </body>
 </html>
