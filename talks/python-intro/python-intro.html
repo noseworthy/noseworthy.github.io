@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>An Intro to Python - The Pythonic Way</title>
+        <meta name="description" content="Introduction to Python NDev Talk">
+        <meta name="author" content="Michael Noseworthy">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="../../css/reveal.css">
+        <link rel="stylesheet" href="../../css/theme/night.css" id="theme">
+
+        <script src="../../js/reveal.js"></script>
+        <script src="../../lib/js/head.min.js"></script>
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="../../lib/css/zenburn.css">
+
+        <!-- Font-Awesome! -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="../../lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1>An Intro to Python</h1>
+                    <h3>The Pythonic Way!</h3>
+                </section>
+                <section>
+                    <section>
+                        <h2>This is going to be a very opinionated talk</h2>
+                        <p class="fragment">Sorry, not sorry.</p>
+                    </section>
+                    <section>
+                        <h2>About Me</h2>
+                    </section>
+                </section>
+                <section>
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li>Python Overview</li>
+                        <li>What Do I mean by "Pythonic"</li>
+                        <li>PEP8</li>
+                        <li><em>The Zen of Python</em></li>
+                        <li>8 Fold Path to Pythonic Zen</li>
+                        <li>Big 'Ol Pythonic Refactor</li>
+                        <li>Mike's Recommended Python Setup</li>
+                        <li>Questions</li>
+                        <li>Resources</li>
+                    </ul>
+                </section>
+                <section>
+                    <section>
+                        <h2>Python Overview</h2>
+                    </section>
+                    <section>
+                        <h2>Who...</h2>
+                        <p class="fragment">uses Python daily?</p>
+                        <p class="fragment">has been using Python for 1 month?</p>
+                        <p class="fragment">has been using Python for 1 year?</p>
+                        <p class="fragment">has been using Python for 5 years?</p>
+                    </section>
+                    <section>
+                        <h4>Regardless of experience, I hope you learn something and have fun!</h4>
+                    </section>
+                    <section>
+                        <h2>BDFL ❤️</h2>
+                        <img width="400" height="267" src="./content/guido.jpg" alt="Guido van Rossum" />
+                    </section>
+                    <section>
+                        <h2>Python is...</h2>
+                        <p class="fragment">Named after Monty Python</p>
+                        <p class="fragment">A little silly</p>
+                        <p class="fragment">28 years old</p>
+                        <p class="fragment">Python 3 is 10 years old! 🎉</p>
+                    </section>
+                    <section>
+                        <h2>🦆 Typed</h2>
+                        <p>If it walks like a duck and it quacks like a duck, then it must be a duck.</p>
+                        <div class="fragment">
+                            <img src="./content/bedivere.jpg" alt="Sir Bedivere from Monty Python and the Holy Grail" />
+                        </div>
+                    </section>
+                    <section>
+                        <h2>But still...</h2>
+                        <p>Strongly Typed</p>
+                        <p>General Purpose Programming Language</p>
+                        <p>With OO and Procedural Features</p>
+                    </section>
+                    <section>
+                        <h2>Python is a language</h2>
+                        <p>But there are different implementations</p>
+                        <ul>
+                            <li>CPython<sup>*</sup></li>
+                            <li>PyPy</li>
+                            <li>Jython</li>
+                            <li>IronPython</li>
+                            <li>etc...</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>I ❤️ Python</h2>
+                        <p class="fragment">Hopefully you'll love it too!</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>"Pythonic" Python</h2>
+                    </section>
+                    <section>
+                        <h2>Pythonic Means</h2>
+                        <blockquote>
+                            <p>Using the features of the language in an idiomatic way to improve readability, maintainability, and performance</p>
+                            <p><small>– Me. Just Now</small></p>
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h2>PEP</h2>
+                        <p>A PEP is a <em>Python Enhancement Proposal</em></p>
+                        <p><a href="https://www.python.org/dev/peps/pep-0001">PEP 1</a> defines what a PEP is, and the PEP workflow</p>
+                        <p>An important one you'll hear about a lot is <a href="https://www.python.org/dev/peps/pep-0008">PEP 8</a>, the Python style guide</p>
+                    </section>
+                    <section>
+                        <h2><a href="https://www.python.org/dev/peps/pep-0008">PEP 8</a></h2>
+                        <p>The style guide is a good start to write readable python code</p>
+                        <p>But as the first section just after the introduction says:</p>
+                        <blockquote cite="https://www.python.org/dev/peps/pep-0008/#a-foolish-consistency-is-the-hobgoblin-of-little-minds">
+                            <p>A Foolish Consistency is the Hobgoblin of Little Minds</p>
+                            <small>– PEP 8</small>
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h2><a href="https://www.python.org/dev/peps/pep-0020">PEP 20</a></h2>
+                        <p>PEP 20 -- <em>The Zen of Python</em></p>
+                        <blockquote cite="https://www.python.org/dev/peps/pep-0020/#abstract">
+                            <p>Long time Pythoneer Tim Peters succinctly channels the BDFL's guiding principles for Python's design into 20 aphorisms, only 19 of which have been written down.</p>
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h2><code>import this</code></h2>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>The Eight-Fold Path of Pythonic Zen<br /><br />☸️</h2>
+                    </section>
+                    <section>
+                        <h3>Many Thanks to Raymond Hettinger</h3>
+                        <p>Most of this next section is adapted and copied from
+                            Raymond's talk: <a href="https://youtu.be/OSGv2VnC0go">
+                                Transforming Code into Beautiful, Idiomatic
+                                Python</a>
+                        </p>
+                        <p class="fragment">Raymond is the man</p>
+                        <p class="fragment">Follow <a href="https://twitter.com/raymondh">@raymondh</a></p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Loops</h2>
+                        <p>Python uses an iterator protocol</p>
+                        <p>Avoid using indicies. They're <em>usually</em> not needed</p>
+                        <p>If you <em>do</em> need indices, use `enumerate()`</p>
+                    </section>
+                    <section>
+                        <h3>Example - Loop X Times</h3>
+                        <div>
+                            <pre style="position: absolute"><code class="hljs python">
+squares = []
+
+for i in [1, 2, 3, 4, 5]:
+    squares.append(i ** i)
+                                </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+squares = []
+
+for i in range(1, 6):
+    squares.append(i ** i)
+                                </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+squares = [i ** i for i in range(1, 5)]
+
+
+
+                                </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Example - Loop over Sequences</h3>
+                        <div>
+                            <pre style="position: absolute"><code class="hljs python">
+colours = ['red', 'blue', 'green', 'yellow']
+
+for i in range(len(colours)):
+    print('I love the colour {0}'.format(colours[i]))
+                            </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+colours = ['red', 'blue', 'green', 'yellow']
+
+for colour in colours:
+    print(f'I love the colour {colour}')
+                            </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+colours = ['red', 'blue', 'green', 'yellow']
+
+for colour in reversed(colours):  # Backwards!
+    print(f'I love the colour {colour}')
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Example - Looping With Indices</h3>
+                        <div>
+                            <pre style="position: absolute"><code class="hljs python">
+colours = ['red', 'blue', 'green', 'yellow']
+
+for i in range(len(colours)):
+    print(i, '-->', colours[i])
+                            </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+colours = ['red', 'blue', 'green', 'yellow']
+
+for i, colour in enumerate(colours):
+    print(f'{i} --> {colour}')
+                            </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+colours = ['red', 'blue', 'green', 'yellow']
+
+for colour in reversed(colours):  # Backwards!
+    print(f'I love the colour {colour}')
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Example - Looping Over Two Sequences</h3>
+                        <div>
+                            <pre style="position: absolute"><code class="hljs python">
+names = ['Bob', 'Sally', 'Jane']
+colours = ['red', 'blue', 'green', 'yellow']
+
+min_len = min(len(names), len(colours))
+
+for i in range(min_len):
+    print(names[i], 'likes', colours[i])
+                            </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+names = ['Bob', 'Sally', 'Jane']
+colours = ['red', 'blue', 'green', 'yellow']
+
+
+
+for name, colour in zip(names, colours):
+    print(f'{name} likes {colour}!')
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Example - Sorted Looping</h3>
+                        <div>
+                            <pre style="position: absolute"><code class="hljs python">
+colors = ['red', 'green', 'blue', 'yellow']
+
+for color in sorted(colors):
+    print(color)
+                            </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+colors = ['red', 'green', 'blue', 'yellow']
+
+for color in sorted(colors, reverse=True):  # Backwards!
+    print(color)
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>A little more advanced...</h2>
+                    </section>
+                    <section>
+                        <h3>Example - Loop Until Sentinel</h3>
+                        <div>
+                            <pre style="position: absolute"><code class="hljs python">
+blocks = []
+
+while True:
+    block = f.read(32)
+    if block == '':
+        break
+    blocks.append(block)
+                            </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+blocks = []
+read_32_bytes = partial(f.read, 32)
+
+
+
+for block in iter(read_32_bytes, ''):
+    blocks.append(block)
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Example - For Else</h3>
+                        <div>
+                            <pre style="position: absolute"><code class="hljs python">
+def find(sequence, target):
+    found = False
+
+    for i, value in enumerate(sequence):
+        if value == target:
+            found = True
+            break
+
+    if not found:
+        return -1
+    return i
+                            </code></pre>
+                            <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+def find(sequence, target):
+
+
+    for i, value in enumerate(sequence):
+        if value == target:
+            break
+    else:
+        return -1
+
+
+    return i
+
+                            </code></pre>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Dictionaries</h2>
+                        <p>Almost everything in Python is a <code>dict</code></p>
+                        <p>Effectively using dictionaries is important for pythonic code</p>
+                    </section>
+                    <section>
+                        <h3>Example - Loop Over Keys</h3>
+                        <pre><code class="hljs python">novel = {
+    'title': 'Don Quixote',
+    'author': 'Miguel De Cervantes',
+    'pages': 1072,
+    'ISBN': '978-0142437230'
+}
+
+for key in novel:
+    print(key)</code></pre>
+                            <pre class="fragment fade-in"><code class="hljs python" contenteditable># Can also use .keys() to get a set-like view
+
+for key in novel.keys():
+    print(key)
+                            </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Loop Over Values</h3>
+                        <pre style="position: absolute" ><code class="hljs python">
+novel = {
+    'title': 'Don Quixote',
+    'author': 'Miguel De Cervantes',
+    'pages': 1072,
+    'ISBN': '978-0142437230'
+}
+
+for key in novel:
+    print(novel[key])
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+novel = {
+    'title': 'Don Quixote',
+    'author': 'Miguel De Cervantes',
+    'pages': 1072,
+    'ISBN': '978-0142437230'
+}
+
+for value in novel.values():
+    print(value)
+                            </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Loop Over Keys and Values</h3>
+                        <pre style="position: absolute" ><code class="hljs python">
+novel = {
+    'title': 'Don Quixote',
+    'author': 'Miguel De Cervantes',
+    'pages': 1072,
+    'ISBN': '978-0142437230'
+}
+
+for key in novel:
+    print(key, '-->', novel[key])
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+novel = {
+    'title': 'Don Quixote',
+    'author': 'Miguel De Cervantes',
+    'pages': 1072,
+    'ISBN': '978-0142437230'
+}
+
+for key, value in novel.items():
+    print(key, '-->', value)
+                            </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Construct a Dictionary</h3>
+                        <pre style="position: absolute" ><code class="hljs python">
+keys = ['title', 'author', 'pages', 'ISBN']
+values = [
+    'Don Quixote',
+    'Miguel De Cervantes',
+    1072,
+    '978-0142437230'
+]
+
+novel = {}
+
+for i, key in enumerate(keys):
+    novel[key] = values[i]
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+keys = ['title', 'author', 'pages', 'ISBN']
+values = [
+    'Don Quixote',
+    'Miguel De Cervantes',
+    1072,
+    '978-0142437230'
+]
+
+
+novel = dict(zip(keys, values))
+
+
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+keys = ['title', 'author', 'pages', 'ISBN']
+values = [
+    'Don Quixote',
+    'Miguel De Cervantes',
+    1072,
+    '978-0142437230'
+]
+
+
+novel = {k: v for k, v in zip(keys, values)}
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Counting With A Dictionary</h3>
+                        <pre style="position: absolute" ><code class="hljs python">
+story = (
+    'peter piper picked a peck of pickled peppers '
+    'a peck of pickled peppers peter piper picked'
+)
+
+counter = {}
+for word in story.split():
+    if word not in counter:
+        counter[word] = 0
+
+    counter[word] += 1
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+story = (
+    'peter piper picked a peck of pickled peppers '
+    'a peck of pickled peppers peter piper picked'
+)
+
+counter = {}
+for word in story.split():
+    counter[word] = counter.get('word', 0) + 1
+
+
+
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>from collections import defaultdict
+story = (
+    'peter piper picked a peck of pickled peppers '
+    'a peck of pickled peppers peter piper picked'
+)
+
+counter = defaultdict(int)
+for word in story.split():
+    counter[word] += 1
+
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Grouping With A Dictionary</h3>
+                        <pre style="position: absolute" ><code class="hljs python">
+colours = [
+    'red', 'green', 'blue', 'magenta',
+    'purple', 'brown', 'yellow'
+]
+
+groups = {}
+for colour in colours:
+    key = len(colour)
+    if key not in groups:
+        groups[key] = []
+
+    groups[key].append(colour)
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+colours = [
+    'red', 'green', 'blue', 'magenta',
+    'purple', 'brown', 'yellow'
+]
+
+groups = {}
+for colour in colours:
+    key = len(colour)
+    groups.setdefault(key, []).append(colour)
+
+
+
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>from collections import defaultdict
+colours = [
+    'red', 'green', 'blue', 'magenta',
+    'purple', 'brown', 'yellow'
+]
+
+groups = defaultdict(list)
+for colour in colours:
+    key = len(colour)
+    groups[key].append(colour)
+
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Linking Dictionaries</h3>
+                        <pre style="position: absolute" ><code class="hljs python">
+import os
+import argparse
+
+defaults = {'username': 'noseworthy', 'debug': False}
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--debug', action='store_true')
+namespace = parser.parse_args(['-d'])
+command_line_args = {
+    k: v for k, v in vars(namespace).items() if v
+}
+
+args = defaults.copy()
+args.update(os.environ)
+args.update(command_line_args)
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>from collections import ChainMap
+import os
+import argparse
+
+defaults = {'username': 'noseworthy', 'debug': False}
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--debug', action='store_true')
+namespace = parser.parse_args(['-d'])
+command_line_args = {
+    k: v for k, v in vars(namespace).items() if v
+}
+
+args = ChainMap(command_line_args, os.environ, defaults)
+
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Improve Clarity</h2>
+                        <p>Use keywords and names over positional args and indices</p>
+                        <p>Use namedtuple to add names to tuple fields</p>
+                    </section>
+                    <section>
+                        <h3>Example - Unpack Sequences</h3>
+                        <pre style="position: absolute" ><code class="hljs python">
+person = (
+    'mike', 'noseworthy', 0x1E, 'https://github.com/noseworthy'
+)
+
+first_name = person[0]
+last_name = person[1]
+age = person[2]
+website = person[3]
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+person = (
+    'mike', 'noseworthy', 0x1E, 'https://github.com/noseworthy'
+)
+
+first_name, last_name, age, website = person
+
+# This is atomic, and easier to read!
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Keyword Arguments</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+# what the heck does this do?
+repo_search('noseworthy', 10, True)
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+# Now it's a little clearer
+repo_search(username='noseworthy', limit=10, forks=True)
+
+# It probably searches github for repos owned by
+# the user 'noseworthy', returns a max of 10,
+# and includes forked repos.
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+def add_contact(f_name, l_name, age, website):
+    ...
+
+person = (
+    'mike', 'noseworthy', 0x1E, 'https://github.com/noseworthy'
+)
+
+
+# unpack sequence as positional arguments
+add_contact(*person)
+
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+def add_contact(f_name, l_name, age, website):
+    ...
+
+
+person = {
+    'f_name': 'mike',
+    'l_name': 'noseworthy',
+    'age': 0x1E,
+    'website': 'https://github.com/noseworthy'
+}
+
+# unpack mapping as keyword based parameters
+add_contact(**person)
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Example - Update Multiple States</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+def fibonacci(n):
+    x = 0
+    y = 1
+    for i in range(n):
+        print(x)
+        t = y
+        y = x + y
+        x = t
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+def fibonacci(n):
+    x, y = 0, 1
+
+    for i in range(n):
+        print(x)
+        x, y = y, x + y
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Clarify Multiple Returns</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+# Who's a what now? 🤔
+tester.runtest()
+>> (10, 1, 3, 14)
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+# 😲 Much Better.
+tester.runtest()
+>> TestResult(passed=10, failed=1, skipped=3, total=14)
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+from collections import namedtuple
+
+TestResult = namedtuple(
+    'TestResult',
+    ['passed', 'failed', 'skipped', 'total']
+)
+
+def runtest():
+    ...
+    return TestResult(passed, failed, skipped, total)
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Efficiency</h2>
+                        <p>Don't move data around unnecessarily</p>
+                        <p>Cache hits are fast, misses are slow</p>
+                        <p>Use generators instead of loading all data into memory</p>
+                    </section>
+                    <section>
+                        <h3>Example - Sums</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+def first_n(n)
+    num, numbers = 0, []
+    while num < n:
+        numbers.apend(num)
+        num += 1
+    return numbers
+
+sum_of_first_n = sum(first_n(1_000_000))
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+def first_n(n)
+    num = 0
+    while num < n:
+        yield num
+        num += 1
+
+
+sum_of_first_n = sum(first_n(1_000_000))
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - List Comprehensions</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+result = []
+for i in range(10):
+    s = i ** 2
+    result.append(s)
+
+sum_of_squares = sum(result)
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+
+
+
+
+# list comprehension (clearer, but fills memory)
+sum_of_squares = sum([i ** 2 for i in range(10)])
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+
+
+
+
+# generator expression (Clear AND fast and space efficient)
+sum_of_squares = sum(i ** 2 for i in range(10))
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>String Handling</h2>
+                        <p>Use <code>join</code>, don't use <code>+</code></p>
+                        <p>Use <code>'''</code> or <code>"""</code> for multi-line string literals</p>
+                        <p>Two strings next to each other will automatically concat</p>
+                    </section>
+                    <section>
+                        <h3>Example - String Concat</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+food_items = ['spam', 'sausage', 'eggs', 'bacon', 'toutons']
+
+meal = 'I ate: ' + food_items[0]
+for food in food_items[1:]:
+    meal += ', ' + food
+
+meal += ' for breakfast!'
+
+print(meal)
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+food_items = ['spam', 'sausage', 'eggs', 'bacon', 'toutons']
+
+
+meal = 'I ate: {0} for breakfast!'
+
+
+print(meal.format(', '.join(food_items)))
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Multi-Line Strings</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+import json
+json_string = '''
+{
+    "name": "Michael",
+    "age": 30,
+    "languages": [
+        "english",
+        "python"
+    ]
+
+}
+'''
+
+person = json.loads(json_string)
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+story = (
+    'The quick brown fox '
+    'jumped over the '
+    'lazy dog.'
+)
+
+
+
+
+print(story)
+>> 'The quick brown fox jumped over the lazy dog.'
+
+
+
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Updating Sequences</h2>
+                        <p>If updating the beginning of a list, use <code>deque</code></p>
+                    </section>
+                    <section>
+                        <h3>Example - <code>deque</code></h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+names = ['sally', 'ann', 'jimmy', 'bobby']
+
+# VERY SLOW - Need to shift everything in the list around
+del names[0]
+names.pop(0)
+names.insert(0, 'sue')
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>from collections import deque
+names = deque(['sally', 'ann', 'jimmy', 'bobby'])
+
+# O(1) time! 🔥 - Double ended queue to the rescue!
+del names[0]
+names.pop(0)
+names.insert(0, 'sue')
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Decorators and Context Managers</h2>
+                        <p>Advanced features for expert pythonistas</p>
+                        <p>Separates business and admin logic</p>
+                        <p>Clean refactoring tools that improve code reuse</p>
+                    </section>
+                    <section>
+                        <h3>Example - Decorator</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>import urllib.request
+
+
+
+def get_url(url, cache={}):
+    if url in cache:
+        return cache[url]
+
+    with urllib.request.urlopen(url) as response:
+        page = response.read()
+
+    cache[url] = page
+
+    return page
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>import urllib.request
+from decorators import cache
+
+@cache
+def get_url(url):
+    with urllib.request.urlopen(url) as response:
+        return response.read()
+
+
+
+
+
+
+
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>from functools import wraps
+
+def cache(func):
+    cache = {}
+
+    @wraps(func)
+    def wrapped_func(*args):
+        if args in cache:
+            return cache[args]
+        result = func(*args)
+        saved[args] = result
+        return result
+
+    return wrapped_func
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Use <code>functools.lru_cache</code></h3>
+                        <p>This was added in Python 3.2</p>
+                        <p>Just use this where applicable</p>
+                    </section>
+                    <section>
+                        <h3>Example - Read File</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+def get_words(file_path):
+    f = open(file, 'r')
+    try:
+        data = f.read()
+    finally:
+        f.close()
+    return data.split()
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+def get_words(file_path):
+    with open(file, 'r') as f:
+        data = f.read()
+
+    return data.split()
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Locks</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>import threading
+lock = threading.lock()
+
+lock.acquire()
+try:
+    print('Critical Section 1')
+    print('Critical Section 2')
+finally:
+    lock.release()
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+lock = threading.lock()
+
+lock.acquire()
+with lock:
+    print('Critical Section 1')
+    print('Critical Section 2')
+
+
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Example - <em>Explicitly</em> Silence Exceptions</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>import os
+
+try:
+    os.remove('file.png')
+except OSError:
+    pass
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>import os
+from contextlib import suppress
+
+with suppress(OSError):
+    os.remove('file.png')
+
+                        </code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Stop Writing Classes</h2>
+                        <p>Some of you are going to want a class for everything</p>
+                        <p>Classes are great, but not everything is a class</p>
+                        <p>Sometimes a class, is really just a function</p>
+                    </section>
+                    <section>
+                        <h2>Truth</h2>
+                        <img style="border: none" src="./content/tweet.png" alt="John Carmack - Sometimes, the elegant implementation is just a function.  Not a method.  Not a class.  Not a framework.  Just a function." />
+                    </section>
+                    <section>
+                        <h3>Example - Not a Class</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+class Greeting:
+    def __init__(self, greet):
+        self.greet = greet
+
+    def say_greeting(name):
+        print(self.greet + name)
+
+g = Greeting('Hello there, ')
+
+g.say_greeting('Michael')
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+
+
+
+def greet(greeting, name):
+        print(greeting + name)
+
+greet('Hello there,', 'Michael')
+
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Empty Classes</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+# Why!?!
+class Flow:
+    pass
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Example - Non-Pythonic Class</h3>
+                        <pre style="position: absolute"><code class="hljs python" contenteditable>
+class School:
+    def __init__(self, students):
+        self.students = students or []
+
+    def enroll(self, student):
+        self.students.append(student)
+
+    def class_size(self):
+        return len(self.students)
+
+    ...
+
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+class School:
+    def __init__(self, students):
+        self.students = students or []
+
+    def enroll(self, student):
+        self.students.append(student)
+
+    def __len__(self):
+        return len(self.students)
+
+    ...
+
+                        </code></pre>
+                        <pre style="position: absolute"  class="fragment fade-in"><code class="hljs python" contenteditable>
+
+
+# really just an array...
+school = [student1, student2, student3]
+
+
+
+
+
+
+
+
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Super Trivial Examples</h3>
+                        <p>But these do happen</p>
+                        <p>They do obfuscate your code</p>
+                    </section>
+                    <section>
+                        <h3>Use the class level dunders</h3>
+                        <ul>
+                            <li>__call__</li>
+                            <li>__len__</li>
+                            <li>__setitem__</li>
+                            <li>__getitem__</li>
+                            <li>__iter__</li>
+                            <li>etc...</li>
+                        </ul>
+                        <p>Allows you to use the class with standard operators</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Big 'Ol Refactor</h2>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>My Setup</h2>
+                    </section>
+                    <section>
+                        <h3>What are you building?</h3>
+                        <p>Script?</p>
+                        <p>Library/Package?</p>
+                        <p>Application?</p>
+                    </section>
+                    <section>
+                        <h3>Install Python</h3>
+                        <pre><code class="hljs bash">
+$ brew install python
+                        </code></pre>
+                        <pre><code class="hljs bash">
+$ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+$ pyenv install 3.6.5
+$ pyenv global 3.6.5
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Create VirtualEnv</h3>
+                        <pre><code class="hljs bash">
+$ mkdir project && cd project
+$ python -m venv .venv/project
+$ . .venv/project/bin/activate
+                        </code></pre>
+                        <pre><code class="hljs bash">
+$ pyenv virtualenv project
+$ mkdir project && cd project
+$ pyenv local project
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3><code>pip install</code> to your hearts content!</h3>
+                        <p>This setup is pretty good, I think</p>
+                        <p>Keeps dependencies isolated to projects</p>
+                        <p>The PYPA is now recommending <code>pipenv</code></p>
+                        <p>I haven't used it, though I hear it is good</p>
+                    </section>
+                    <section>
+                        <h3>Daily Workflow</h3>
+                        <p>
+                            I use the <code>ipython</code> interpreter and the
+                            <code>pudb</code> debugger daily
+                        </p>
+                        <p>
+                            My daily workflow sees me in ipython playing with
+                            data and apis and testing things out before codifying them
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <h2>Bonus Unsolicited Opinions!</h2>
+                    <ul>
+                        <li>Don't leave module level code around</li>
+                        <li>Adopt the style of your project and team, but try to be pythonic otherwise</li>
+                        <li>Don't put too much in <code>__init__.py</code></li>
+                        <li>Use classes sparingly</li>
+                        <li>Type hints can be useful though I haven't used them much</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Resources</h2>
+                    <ul>
+                        <li><a href="https://youtu.be/OSGv2VnC0go">Raymond Hettinger - Transforming Code into Beautiful, Idiomatic Python</a></li>
+                        <li><a href="https://youtu.be/wf-BqAjZb8M">Raymond Hettinger - Beyond PEP8</a></li>
+                        <li><a href="https://youtu.be/o9pEzgHorH0">Jack Diederich - Stop Writing Classes</a></li>
+                        <li><a href="http://docs.python-guide.org/en/latest/">The Hitchhiker's Guide to Python</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h1>Thanks For Your Attention!</h1>
+                </section>
+                <section>
+                    <h2>Questions?</h2>
+                </section>
+            </div>
+        </div>
+        <script>
+            (
+                function() {
+                // Full list of configuration options available at:
+                // https://github.com/hakimel/reveal.js#configuration
+                Reveal.initialize({
+                    controls: true,
+                    progress: true,
+                    history: true,
+                    center: true,
+                    transition: 'convex', // none/fade/slide/convex/concave/zoom
+                    // Optional reveal.js plugins
+                    dependencies: [
+                        { src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                        { src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                        { src: '../../plugin/zoom-js/zoom.js', async: true },
+                        { src: '../../plugin/notes/notes.js', async: true }
+                    ]
+                });
+        })();
+        </script>
+    </body>
+</html>
