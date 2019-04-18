@@ -173,7 +173,7 @@
                     <p>The python <code>import</code> statement can be confusing</p>
                     <p>It finds and loads python modules and packages.</p>
                     <pre><code class="hljs python">import foo
-            from bar.baz import shrubbery as shrub</code></pre>
+from bar.baz import shrubbery as shrub</code></pre>
                 </section>
                 <section>
                     <h2>Finding Packages</h2>
@@ -187,14 +187,14 @@
                     <h2>Finding Packages - ctd.</h2>
                     <p>Example <code>sys.path</code></p>
                     <pre><code class="hljs python">&gt;&gt;&gt; import sys
-            &gt;&gt;&gt; print(sys.path)
+&gt;&gt;&gt; print(sys.path)
 
-            [
-                "",
-                "~/.pyenv/versions/3.7.3/lib/python3.7",
-                "~/.pyenv/versions/3.7.3/lib/python3.7/lib-dynload",
-                "~/.pyenv/versions/3.7.3/lib/python3.7/site-packages"
-            ]</code></pre>
+[
+    "",
+    "~/.pyenv/versions/3.7.3/lib/python3.7",
+    "~/.pyenv/versions/3.7.3/lib/python3.7/lib-dynload",
+    "~/.pyenv/versions/3.7.3/lib/python3.7/site-packages"
+]</code></pre>
                 </section>
                 <section>
                     <h2>Loading Packages</h2>
@@ -206,37 +206,37 @@
                     <h2>Loading Example</h2>
                     <p>Let's load <code>my_package</code></p>
                     <pre><code class="hljs bash">my_package
-            ├─ __init__.py
-            ├─ submodule.py
-            └─ util.py</code></pre>
+├─ __init__.py
+├─ submodule.py
+└─ util.py</code></pre>
                 </section>
                 <section>
                     <h2>Loading Example - ctd.</h2>
                     <p>Contents of <code>__init__.py</code></p>
                     <pre><code class="hljs python"># -*- coding: utf-8 -*-
-            """Init file of my_package"""
-            print("Hello there!")
-            </code></pre>
+"""Init file of my_package"""
+print("Hello there!")
+</code></pre>
                     <p>Now let's import it!</p>
                     <pre><code class="hljs python">$ python
-            &gt;&gt;&gt; from my_package.util import do_calculation
-            Hello there!
-            >>></code></pre>
+&gt;&gt;&gt; from my_package.util import do_calculation
+Hello there!
+>>></code></pre>
                 </section>
                 <section>
                     <h2>Project Structure</h2>
                     <p>Just do this:</p>
                     <pre><code class="hljs bash">                        packagename
-                                    ├─ src
-                                    │  ├─ packagename
-                                    │  ├─ __init__.py
-                                    │  └─ ...
-                                    ├─ tests
-                                    │  └─ ...
-                                    ├─ docs
-                                    │  └─ ...
-                                    ├─ README.md
-                                    └─ setup.py</code></pre>
+                        ├─ src
+                        │  ├─ packagename
+                        │  ├─ __init__.py
+                        │  └─ ...
+                        ├─ tests
+                        │  └─ ...
+                        ├─ docs
+                        │  └─ ...
+                        ├─ README.md
+                        └─ setup.py</code></pre>
                     <small><a href="https://blog.ionelmc.ro/2014/05/25/python-packaging/"><sup>*</sup> Stolen from Ionel
                             Cristian Mărieș</a></small>
                 </section>
@@ -247,20 +247,20 @@
                 <section>
                     <h4><code>packagename/src/packagename/__main__.py</code></h4>
                     <pre><code class="hljs python">#!/usr/bin/env python3
-            # -*- coding: utf-8 -*-
-            """Main entry point for my script!"""
-            from third.party.package import thing
+# -*- coding: utf-8 -*-
+"""Main entry point for my script!"""
+from third.party.package import thing
 
-            def main():
-                """Main function running appliation loop"""
-                running = True
-                while running:
-                    do_stuff()
-                    thing(1, 2)
+def main():
+    """Main function running appliation loop"""
+    running = True
+    while running:
+        do_stuff()
+        thing(1, 2)
 
-            if __name__ == "__main__":
-                main()
-                                </code></pre>
+if __name__ == "__main__":
+    main()
+                    </code></pre>
                 </section>
             </section>
             <section>
@@ -307,24 +307,24 @@
                 </section>
                 <section>
                     <pre><code class="hljs text">Beautiful is better than ugly.
-            Explicit is better than implicit.
-            Simple is better than complex.
-            Complex is better than complicated.
-            Flat is better than nested.
-            Sparse is better than dense.
-            Readability counts.
-            Special cases aren't special enough to break the rules.
-            Although practicality beats purity.
-            Errors should never pass silently.
-            Unless explicitly silenced.
-            In the face of ambiguity, refuse the temptation to guess.
-            There should be one-- and preferably only one --obvious way to do it.
-            Although that way may not be obvious at first unless you're Dutch.
-            Now is better than never.
-            Although never is often better than *right* now.
-            If the implementation is hard to explain, it's a bad idea.
-            If the implementation is easy to explain, it may be a good idea.
-            Namespaces are one honking great idea -- let's do more of those!
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
                                 </code></pre>
                 </section>
             </section>
@@ -342,21 +342,21 @@
                 <section>
                     <h3>Install Python</h3>
                     <pre><code class="hljs bash">
-                            $ curl https://pyenv.run | bash
-                            $ pyenv install 3.7.3
-                            $ pyenv global 3.7.3
-                                </code></pre>
+                        $ curl https://pyenv.run | bash
+                        $ pyenv install 3.7.3
+                        $ pyenv global 3.7.3
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Some common <code>pyenv</code> commands</h3>
                     <pre><code class="hljs bash">
-            $ pyenv commands        # Show all commands
-            $ pyenv install --list  # Show versions available for install
-            $ pyenv uninstall       # Uninstall a version of python
-            $ pyenv version         # Show the current Python version
-            $ pyenv versions        # Show versions available to pyenv
-            $ pyenv update          # Update pyenv itself
-                                </code></pre>
+$ pyenv commands        # Show all commands
+$ pyenv install --list  # Show versions available for install
+$ pyenv uninstall       # Uninstall a version of python
+$ pyenv version         # Show the current Python version
+$ pyenv versions        # Show versions available to pyenv
+$ pyenv update          # Update pyenv itself
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Dependency Management</h3>
@@ -372,27 +372,27 @@
                 <section>
                     <h3>Create Virtual Environment</h3>
                     <pre><code class="hljs bash">
-                            $ mkdir &lt;project&gt; && cd &lt;project&gt;
-                            $ python -m venv .venv
-                            $ . .venv/bin/activate
-                            (.venv) $ python run_command.py
-                            $ ...
-                            (.venv) $ deactivate              # when done
+            $ mkdir &lt;project&gt; && cd &lt;project&gt;
+            $ python -m venv .venv
+            $ . .venv/bin/activate
+            (.venv) $ python run_command.py
+            $ ...
+            (.venv) $ deactivate              # when done
                                 </code></pre>
                     <pre><code class="hljs bash">
-                            $ pyenv virtualenv &lt;project&gt;
-                            $ mkdir &lt;project&gt; && cd &lt;project&gt;
-                            $ pyenv local &lt;project&gt;
-                                </code></pre>
+            $ pyenv virtualenv &lt;project&gt;
+            $ mkdir &lt;project&gt; && cd &lt;project&gt;
+            $ pyenv local &lt;project&gt;
+                </code></pre>
                 </section>
                 <section>
                     <h3>Use <code>pip</code> to install third-party packages</h3>
                     <pre><code class="hljs bash">
-                (.venv) $ pip install requests  # install a package
-                (.venv) $ pip freeze            # print installed packages
-                (.venv) $ pip show &lt;package&gt;    # Show information about package
-                (.venv) $ pip search &lt;query&gt;    # Search PyPI for packages
-                                </code></pre>
+(.venv) $ pip install requests  # install a package
+(.venv) $ pip freeze            # print installed packages
+(.venv) $ pip show &lt;package&gt;    # Show information about package
+(.venv) $ pip search &lt;query&gt;    # Search PyPI for packages
+                    </code></pre>
                 </section>
                 <section>
                     <h3><code>pip install</code> to your hearts content!</h3>
@@ -408,20 +408,18 @@
                 </section>
                 <section>
                     <h3>Install <code>poetry</code></h3>
-                    <pre><code class="hljs bash">
-            $ curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
-                                </code></pre>
+                    <pre><code class="hljs bash">$ curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python</code></pre>
                 </section>
                 <section>
                     <h3>Using <code>poetry</code></h3>
                     <pre><code class="hljs bash">
-                            $ poetry new --src my-package
-                            $ poetry add [-D] &lt;package-name&gt;
-                            $ poetry remove &lt;package-name&gt;
-                            $ poetry install
-                            $ poetry build
-                            $ poetry run &lt;command&gt;
-                                </code></pre>
+$ poetry new --src my-package
+$ poetry add [-D] &lt;package-name&gt;
+$ poetry remove &lt;package-name&gt;
+$ poetry install
+$ poetry build
+$ poetry run &lt;command&gt;
+                    </code></pre>
                 </section>
                 <section>
                     <h3>REPL</h3>
@@ -433,10 +431,10 @@
                 <section>
                     <h3>Install <code>ipython</code></h3>
                     <pre><code class="hljs bash">
-                            $ pip install ipython
-                            # or
-                            $ poetry add -D ipython
-                                </code></pre>
+            $ pip install ipython
+            # or
+            $ poetry add -D ipython
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Daily Workflow</h3>
@@ -491,19 +489,19 @@
                     <h3>Example - Function</h3>
                     <div>
                         <pre style="position: absolute"><code class="hljs python">def foo():
-                print("Hello, world!")
+    print("Hello, world!")
 
-            foo()
-            > Hello, world!
+foo()
+> Hello, world!
 
-            def sum_things(x, y):
-                return x + y
+def sum_things(x, y):
+    return x + y
 
-            def run_func(func, *args, **kwargs):
-                func(*args, **kwargs)
+def run_func(func, *args, **kwargs):
+    func(*args, **kwargs)
 
-            print(run_func(sum, 1, 2))
-            >  3
+print(run_func(sum, 1, 2))
+>  3
                                             </code></pre>
                     </div>
                 </section>
@@ -511,13 +509,13 @@
                     <h3>Example - Function</h3>
                     <div>
                         <pre><code class="hljs python">&gt;&gt;&gt; def bar(x, y, default="thing"):
-            ...    print(f'x: "{x}" | y: "{y}" | default: "{default}"')</code></pre>
+...    print(f'x: "{x}" | y: "{y}" | default: "{default}"')</code></pre>
                         <pre class="fragment fade-in"><code class="hljs python" contenteditable>&gt;&gt;&gt; bar('hi', 12)
-            x: "hi" | y: "12" | default: "thing"</code></pre>
+x: "hi" | y: "12" | default: "thing"</code></pre>
                         <pre class="fragment fade-in"><code class="hljs python" contenteditable>&gt;&gt;&gt; bar('spamalot', 'silly', 'place')
-            x: "spamalot" | y: "silly" | default: "place"</code></pre>
+x: "spamalot" | y: "silly" | default: "place"</code></pre>
                         <pre class="fragment fade-in"><code class="hljs python" contenteditable>&gt;&gt;&gt; bar(y="there", default="boo", x="hey")
-            x: "hey" | y: "there" | default: "boo"</code></pre>
+x: "hey" | y: "there" | default: "boo"</code></pre>
                     </div>
                 </section>
                 <section>
@@ -538,47 +536,47 @@
                 <section>
                     <h3>Special Dunder Methods</h3>
                     <pre style="position: absolute"><code class="hljs python">                def __init__(self[, ...]):
-                            def __del__(self):
-                            def __repr__(self):
-                            def __lt__(self, other):
-                            def __gt__(self, other):
-                            def __eq__(self, other):
-                            def __add__(self, other):
-                            def __len__(self):
-                            def __getitem__(self):
-                            def __enter__(self):
-                            ... etc.
-                                </code></pre>
+                def __del__(self):
+                def __repr__(self):
+                def __lt__(self, other):
+                def __gt__(self, other):
+                def __eq__(self, other):
+                def __add__(self, other):
+                def __len__(self):
+                def __getitem__(self):
+                def __enter__(self):
+                ... etc.
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Example - Class</h3>
                     <pre style="position: absolute"><code class="hljs python">class Door:
-                def __init__(self, height: int, width: int, is_open: bool):
-                    self.height = height
-                    self.width = width
-                    self.is_open = is_open
+    def __init__(self, height: int, width: int, is_open: bool):
+        self.height = height
+        self.width = width
+        self.is_open = is_open
 
-                def open(self):
-                    if self.is_open:
-                        raise Exception('Door is already open!')
-                    self.is_open = True
+    def open(self):
+        if self.is_open:
+            raise Exception('Door is already open!')
+        self.is_open = True
 
-                def close(self):
-                    if not self.is_open:
-                        raise Exception('Door is already closed!')
-                    self.is_open = False
-                                </code></pre>
+    def close(self):
+        if not self.is_open:
+            raise Exception('Door is already closed!')
+        self.is_open = False
+                </code></pre>
                 </section>
                 <section>
                     <h3>Example - Sub-Class</h3>
                     <pre style="position: absolute"><code class="hljs python">class FrenchDoor(Door):
-                def __init__(self, windows=6, *args, **kwargs):
-                    super().__init__(*args, **kwargs)
-                    self.windows = 6
+    def __init__(self, windows=6, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.windows = 6
 
-                def number_of_windows(self):
-                    return self.windows
-                                                </code></pre>
+    def number_of_windows(self):
+        return self.windows
+                                    </code></pre>
                 </section>
             </section>
             <section>
@@ -592,19 +590,19 @@
                     <h3>Example - Loop X Times</h3>
                     <div>
                         <pre style="position: absolute"><code class="hljs python">
-            squares = []
+    squares = []
 
-            for i in [1, 2, 3, 4, 5]:
-                squares.append(i ** i)
+    for i in [1, 2, 3, 4, 5]:
+        squares.append(i ** i)
+                                    </code></pre>
+                        <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
+    squares = []
+
+    for i in range(1, 6):
+        squares.append(i ** i)
                                             </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            squares = []
-
-            for i in range(1, 6):
-                squares.append(i ** i)
-                                            </code></pre>
-                        <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            squares = [i ** i for i in range(1, 5)]
+    squares = [i ** i for i in range(1, 5)]
 
 
 
@@ -615,85 +613,85 @@
                     <h3>Example - Loop over Sequences</h3>
                     <div>
                         <pre style="position: absolute"><code class="hljs python">
-            colours = ['red', 'blue', 'green', 'yellow']
+    colours = ['red', 'blue', 'green', 'yellow']
 
-            for i in range(len(colours)):
-                print('I love the colour {0}'.format(colours[i]))
-                                        </code></pre>
+    for i in range(len(colours)):
+        print('I love the colour {0}'.format(colours[i]))
+                            </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            colours = ['red', 'blue', 'green', 'yellow']
+    colours = ['red', 'blue', 'green', 'yellow']
 
-            for colour in colours:
-                print(f'I love the colour {colour}')
-                                        </code></pre>
+    for colour in colours:
+        print(f'I love the colour {colour}')
+                            </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            colours = ['red', 'blue', 'green', 'yellow']
+    colours = ['red', 'blue', 'green', 'yellow']
 
-            for colour in reversed(colours):  # Backwards!
-                print(f'I love the colour {colour}')
-                                        </code></pre>
+    for colour in reversed(colours):  # Backwards!
+        print(f'I love the colour {colour}')
+                            </code></pre>
                     </div>
                 </section>
                 <section>
                     <h3>Example - Looping With Indices</h3>
                     <div>
                         <pre style="position: absolute"><code class="hljs python">
-            colours = ['red', 'blue', 'green', 'yellow']
+    colours = ['red', 'blue', 'green', 'yellow']
 
-            for i in range(len(colours)):
-                print(i, '-->', colours[i])
-                                        </code></pre>
+    for i in range(len(colours)):
+        print(i, '-->', colours[i])
+                            </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            colours = ['red', 'blue', 'green', 'yellow']
+    colours = ['red', 'blue', 'green', 'yellow']
 
-            for i, colour in enumerate(colours):
-                print(f'{i} --> {colour}')
-                                        </code></pre>
+    for i, colour in enumerate(colours):
+        print(f'{i} --> {colour}')
+                            </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            colours = ['red', 'blue', 'green', 'yellow']
+    colours = ['red', 'blue', 'green', 'yellow']
 
-            for colour in reversed(colours):  # Backwards!
-                print(f'I love the colour {colour}')
-                                        </code></pre>
+    for colour in reversed(colours):  # Backwards!
+        print(f'I love the colour {colour}')
+                            </code></pre>
                     </div>
                 </section>
                 <section>
                     <h3>Example - Looping Over Two Sequences</h3>
                     <div>
                         <pre style="position: absolute"><code class="hljs python">
-            names = ['Bob', 'Sally', 'Jane']
-            colours = ['red', 'blue', 'green', 'yellow']
+    names = ['Bob', 'Sally', 'Jane']
+    colours = ['red', 'blue', 'green', 'yellow']
 
-            min_len = min(len(names), len(colours))
+    min_len = min(len(names), len(colours))
 
-            for i in range(min_len):
-                print(names[i], 'likes', colours[i])
-                                        </code></pre>
+    for i in range(min_len):
+        print(names[i], 'likes', colours[i])
+                                </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            names = ['Bob', 'Sally', 'Jane']
-            colours = ['red', 'blue', 'green', 'yellow']
+    names = ['Bob', 'Sally', 'Jane']
+    colours = ['red', 'blue', 'green', 'yellow']
 
 
 
-            for name, colour in zip(names, colours):
-                print(f'{name} likes {colour}!')
-                                        </code></pre>
+    for name, colour in zip(names, colours):
+        print(f'{name} likes {colour}!')
+                                </code></pre>
                     </div>
                 </section>
                 <section>
                     <h3>Example - Sorted Looping</h3>
                     <div>
                         <pre style="position: absolute"><code class="hljs python">
-            colors = ['red', 'green', 'blue', 'yellow']
+    colors = ['red', 'green', 'blue', 'yellow']
 
-            for color in sorted(colors):
-                print(color)
-                                        </code></pre>
+    for color in sorted(colors):
+        print(color)
+                                </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            colors = ['red', 'green', 'blue', 'yellow']
+    colors = ['red', 'green', 'blue', 'yellow']
 
-            for color in sorted(colors, reverse=True):  # Backwards!
-                print(color)
+    for color in sorted(colors, reverse=True):  # Backwards!
+        print(color)
                                         </code></pre>
                     </div>
                 </section>
@@ -704,54 +702,54 @@
                     <h3>Example - Loop Until Sentinel</h3>
                     <div>
                         <pre style="position: absolute"><code class="hljs python">
-            blocks = []
+    blocks = []
 
-            while True:
-                block = f.read(32)
-                if block == '':
-                    break
-                blocks.append(block)
-                                        </code></pre>
+    while True:
+        block = f.read(32)
+        if block == '':
+            break
+        blocks.append(block)
+                                </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            blocks = []
-            read_32_bytes = partial(f.read, 32)
+    blocks = []
+    read_32_bytes = partial(f.read, 32)
 
 
 
-            for block in iter(read_32_bytes, ''):
-                blocks.append(block)
-                                        </code></pre>
+    for block in iter(read_32_bytes, ''):
+        blocks.append(block)
+                                </code></pre>
                     </div>
                 </section>
                 <section>
                     <h3>Example - For Else</h3>
                     <div>
                         <pre style="position: absolute"><code class="hljs python">
-            def find(sequence, target):
-                found = False
+    def find(sequence, target):
+        found = False
 
-                for i, value in enumerate(sequence):
-                    if value == target:
-                        found = True
-                        break
+        for i, value in enumerate(sequence):
+            if value == target:
+                found = True
+                break
 
-                if not found:
-                    return -1
-                return i
-                                        </code></pre>
+        if not found:
+            return -1
+        return i
+                                </code></pre>
                         <pre class="fragment fade-in" style="position: absolute"><code class="hljs python" contenteditable>
-            def find(sequence, target):
+    def find(sequence, target):
 
 
-                for i, value in enumerate(sequence):
-                    if value == target:
-                        break
-                else:
-                    return -1
+        for i, value in enumerate(sequence):
+            if value == target:
+                break
+        else:
+            return -1
 
 
-                return i
-                                        </code></pre>
+        return i
+                                </code></pre>
                     </div>
                 </section>
             </section>
@@ -764,18 +762,18 @@
                 <section>
                     <h3>Example - Loop Over Keys</h3>
                     <pre><code class="hljs python">novel = {
-                'title': 'Don Quixote',
-                'author': 'Miguel De Cervantes',
-                'pages': 1072,
-                'ISBN': '978-0142437230'
-            }
+    'title': 'Don Quixote',
+    'author': 'Miguel De Cervantes',
+    'pages': 1072,
+    'ISBN': '978-0142437230'
+}
 
-            for key in novel:
-                print(key)</code></pre>
+for key in novel:
+    print(key)</code></pre>
                     <pre class="fragment fade-in"><code class="hljs python" contenteditable># Can also use .keys() to get a set-like view
 
-            for key in novel.keys():
-                print(key)
+for key in novel.keys():
+    print(key)
                                         </code></pre>
                 </section>
                 <section>
@@ -790,7 +788,7 @@
 
             for key in novel:
                 print(novel[key])
-                                    </code></pre>
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
             novel = {
                 'title': 'Don Quixote',
@@ -801,7 +799,7 @@
 
             for value in novel.values():
                 print(value)
-                                        </code></pre>
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Example - Loop Over Keys and Values</h3>
@@ -815,7 +813,7 @@
 
             for key in novel:
                 print(key, '-->', novel[key])
-                                    </code></pre>
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
             novel = {
                 'title': 'Don Quixote',
@@ -826,7 +824,7 @@
 
             for key, value in novel.items():
                 print(key, '-->', value)
-                                        </code></pre>
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Example - Construct a Dictionary</h3>
@@ -843,7 +841,7 @@
 
             for i, key in enumerate(keys):
                 novel[key] = values[i]
-                                    </code></pre>
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
             keys = ['title', 'author', 'pages', 'ISBN']
             values = [
@@ -857,7 +855,7 @@
             novel = dict(zip(keys, values))
 
 
-                                    </code></pre>
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
             keys = ['title', 'author', 'pages', 'ISBN']
             values = [
@@ -876,44 +874,44 @@
                 <section>
                     <h3>Example - Counting With A Dictionary</h3>
                     <pre style="position: absolute"><code class="hljs python">
-            story = (
-                'peter piper picked a peck of pickled peppers '
-                'a peck of pickled peppers peter piper picked'
-            )
+    story = (
+        'peter piper picked a peck of pickled peppers '
+        'a peck of pickled peppers peter piper picked'
+    )
 
-            counter = {}
-            for word in story.split():
-                if word not in counter:
-                    counter[word] = 0
+    counter = {}
+    for word in story.split():
+        if word not in counter:
+            counter[word] = 0
 
-                counter[word] += 1
+        counter[word] += 1
                                     </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            story = (
-                'peter piper picked a peck of pickled peppers '
-                'a peck of pickled peppers peter piper picked'
-            )
+    story = (
+        'peter piper picked a peck of pickled peppers '
+        'a peck of pickled peppers peter piper picked'
+    )
 
-            counter = {}
-            for word in story.split():
-                counter[word] = counter.get(word, 0) + 1
-
-
-
-                                    </code></pre>
-                    <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>from collections import defaultdict
-            story = (
-                'peter piper picked a peck of pickled peppers '
-                'a peck of pickled peppers peter piper picked'
-            )
-
-            counter = defaultdict(int)
-            for word in story.split():
-                counter[word] += 1
+    counter = {}
+    for word in story.split():
+        counter[word] = counter.get(word, 0) + 1
 
 
 
                                     </code></pre>
+                    <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>    from collections import defaultdict
+    story = (
+        'peter piper picked a peck of pickled peppers '
+        'a peck of pickled peppers peter piper picked'
+    )
+
+    counter = defaultdict(int)
+    for word in story.split():
+        counter[word] += 1
+
+
+
+</code></pre>
                 </section>
                 <section>
                     <h3>Example - Grouping With A Dictionary</h3>
@@ -930,7 +928,7 @@
                     groups[key] = []
 
                 groups[key].append(colour)
-                                    </code></pre>
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
             colours = [
                 'red', 'green', 'blue', 'magenta',
@@ -944,8 +942,8 @@
 
 
 
-                                    </code></pre>
-                    <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>from collections import defaultdict
+                    </code></pre>
+                    <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>            from collections import defaultdict
             colours = [
                 'red', 'green', 'blue', 'magenta',
                 'purple', 'brown', 'yellow'
@@ -958,41 +956,41 @@
 
 
 
-                                    </code></pre>
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Example - Linking Dictionaries</h3>
                     <pre style="position: absolute"><code class="hljs python">
-            import os
-            import argparse
+import os
+import argparse
 
-            defaults = {'username': 'noseworthy', 'debug': False}
-            parser = argparse.ArgumentParser()
-            parser.add_argument('-d', '--debug', action='store_true')
-            namespace = parser.parse_args(['-d'])
-            command_line_args = {
-                k: v for k, v in vars(namespace).items() if v
-            }
+defaults = {'username': 'noseworthy', 'debug': False}
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--debug', action='store_true')
+namespace = parser.parse_args(['-d'])
+command_line_args = {
+    k: v for k, v in vars(namespace).items() if v
+}
 
-            args = defaults.copy()
-            args.update(os.environ)
-            args.update(command_line_args)
-                                    </code></pre>
+args = defaults.copy()
+args.update(os.environ)
+args.update(command_line_args)
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>from collections import ChainMap
-            import os
-            import argparse
+import os
+import argparse
 
-            defaults = {'username': 'noseworthy', 'debug': False}
-            parser = argparse.ArgumentParser()
-            parser.add_argument('-d', '--debug', action='store_true')
-            namespace = parser.parse_args(['-d'])
-            command_line_args = {
-                k: v for k, v in vars(namespace).items() if v
-            }
+defaults = {'username': 'noseworthy', 'debug': False}
+parser = argparse.ArgumentParser()
+parser.add_argument('-d', '--debug', action='store_true')
+namespace = parser.parse_args(['-d'])
+command_line_args = {
+    k: v for k, v in vars(namespace).items() if v
+}
 
-            args = ChainMap(command_line_args, os.environ, defaults)
+args = ChainMap(command_line_args, os.environ, defaults)
 
-                                    </code></pre>
+                    </code></pre>
                 </section>
             </section>
             <section>
@@ -1004,117 +1002,117 @@
                 <section>
                     <h3>Example - Unpack Sequences</h3>
                     <pre style="position: absolute"><code class="hljs python">
-            person = (
-                'mike', 'noseworthy', 0x1E, 'https://github.com/noseworthy'
-            )
+    person = (
+        'mike', 'noseworthy', 0x1F, 'https://github.com/noseworthy'
+    )
 
-            first_name = person[0]
-            last_name = person[1]
-            age = person[2]
-            website = person[3]
-                                    </code></pre>
+    first_name = person[0]
+    last_name = person[1]
+    age = person[2]
+    website = person[3]
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            person = (
-                'mike', 'noseworthy', 0x1E, 'https://github.com/noseworthy'
-            )
+    person = (
+        'mike', 'noseworthy', 0x1E, 'https://github.com/noseworthy'
+    )
 
-            first_name, last_name, age, website = person
+    first_name, last_name, age, website = person
 
-            # This is atomic, and easier to read!
+    # This is atomic, and easier to read!
 
-                                    </code></pre>
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Example - Keyword Arguments</h3>
                     <pre style="position: absolute"><code class="hljs python" contenteditable>
-            # what the heck does this do?
-            repo_search('noseworthy', 10, True)
-                                    </code></pre>
+    # what the heck does this do?
+    repo_search('noseworthy', 10, True)
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            # Now it's a little clearer
-            repo_search(username='noseworthy', limit=10, forks=True)
+    # Now it's a little clearer
+    repo_search(username='noseworthy', limit=10, forks=True)
 
-            # It probably searches github for repos owned by
-            # the user 'noseworthy', returns a max of 10,
-            # and includes forked repos.
-                                    </code></pre>
+    # It probably searches github for repos owned by
+    # the user 'noseworthy', returns a max of 10,
+    # and includes forked repos.
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            def add_contact(f_name, l_name, age, website):
-                ...
+    def add_contact(f_name, l_name, age, website):
+        ...
 
-            person = (
-                'mike', 'noseworthy', 0x1E, 'https://github.com/noseworthy'
-            )
+    person = (
+        'mike', 'noseworthy', 0x1E, 'https://github.com/noseworthy'
+    )
 
 
-            # unpack sequence as positional arguments
-            add_contact(*person)
+    # unpack sequence as positional arguments
+    add_contact(*person)
 
-                                    </code></pre>
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            def add_contact(f_name, l_name, age, website):
-                ...
+    def add_contact(f_name, l_name, age, website):
+        ...
 
 
-            person = {
-                'f_name': 'mike',
-                'l_name': 'noseworthy',
-                'age': 0x1E,
-                'website': 'https://github.com/noseworthy'
-            }
+    person = {
+        'f_name': 'mike',
+        'l_name': 'noseworthy',
+        'age': 0x1E,
+        'website': 'https://github.com/noseworthy'
+    }
 
-            # unpack mapping as keyword based parameters
-            add_contact(**person)
-                                    </code></pre>
+    # unpack mapping as keyword based parameters
+    add_contact(**person)
+                    </code></pre>
                 </section>
 
                 <section>
                     <h3>Example - Update Multiple States</h3>
                     <pre style="position: absolute"><code class="hljs python" contenteditable>
-            def fibonacci(n):
-                x = 0
-                y = 1
-                for i in range(n):
-                    print(x)
-                    t = y
-                    y = x + y
-                    x = t
-                                    </code></pre>
+    def fibonacci(n):
+        x = 0
+        y = 1
+        for i in range(n):
+            print(x)
+            t = y
+            y = x + y
+            x = t
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            def fibonacci(n):
-                x, y = 0, 1
+    def fibonacci(n):
+        x, y = 0, 1
 
-                for i in range(n):
-                    print(x)
-                    x, y = y, x + y
+        for i in range(n):
+            print(x)
+            x, y = y, x + y
 
 
-                                    </code></pre>
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Example - Clarify Multiple Returns</h3>
                     <pre style="position: absolute"><code class="hljs python" contenteditable>
-            # Who's a what now? 🤔
-            tester.runtest()
-            >> (10, 1, 3, 14)
-                                    </code></pre>
+    # Who's a what now? 🤔
+    tester.runtest()
+    >> (10, 1, 3, 14)
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            # 😲 Much Better.
-            tester.runtest()
-            >> TestResult(passed=10, failed=1, skipped=3, total=14)
-                                    </code></pre>
+    # 😲 Much Better.
+    tester.runtest()
+    >> TestResult(passed=10, failed=1, skipped=3, total=14)
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            from collections import namedtuple
+    from collections import namedtuple
 
-            TestResult = namedtuple(
-                'TestResult',
-                ['passed', 'failed', 'skipped', 'total']
-            )
+    TestResult = namedtuple(
+        'TestResult',
+        ['passed', 'failed', 'skipped', 'total']
+    )
 
-            def runtest():
-                ...
-                return TestResult(passed, failed, skipped, total)
-                                    </code></pre>
+    def runtest():
+        ...
+        return TestResult(passed, failed, skipped, total)
+                    </code></pre>
                 </section>
             </section>
             <section>
@@ -1135,7 +1133,7 @@
                 return numbers
 
             sum_of_first_n = sum(first_n(1_000_000))
-                                    </code></pre>
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
             def first_n(n)
                 num = 0
@@ -1145,34 +1143,34 @@
 
 
             sum_of_first_n = sum(first_n(1_000_000))
-                                    </code></pre>
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Example - List Comprehensions</h3>
                     <pre style="position: absolute"><code class="hljs python" contenteditable>
-            result = []
-            for i in range(10):
-                s = i ** 2
-                result.append(s)
+    result = []
+    for i in range(10):
+        s = i ** 2
+        result.append(s)
 
-            sum_of_squares = sum(result)
-                                    </code></pre>
+    sum_of_squares = sum(result)
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
 
 
 
 
-            # list comprehension (clearer, but fills memory)
-            sum_of_squares = sum([i ** 2 for i in range(10)])
-                                    </code></pre>
+    # list comprehension (clearer, but fills memory)
+    sum_of_squares = sum([i ** 2 for i in range(10)])
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
 
 
 
 
-            # generator expression (Clear AND fast and space efficient)
-            sum_of_squares = sum(i ** 2 for i in range(10))
-                                    </code></pre>
+    # generator expression (Clear AND fast and space efficient)
+    sum_of_squares = sum(i ** 2 for i in range(10))
+                    </code></pre>
                 </section>
             </section>
             <section>
@@ -1185,27 +1183,27 @@
                 <section>
                     <h3>Example - String Concat</h3>
                     <pre style="position: absolute"><code class="hljs python" contenteditable>
-            food_items = ['spam', 'sausage', 'eggs', 'bacon', 'toutons']
+food_items = ['spam', 'sausage', 'eggs', 'bacon', 'toutons']
 
-            meal = 'I ate: ' + food_items[0]
-            for food in food_items[1:]:
-                meal += ', ' + food
+meal = 'I ate: ' + food_items[0]
+for food in food_items[1:]:
+    meal += ', ' + food
 
-            meal += ' for breakfast!'
+meal += ' for breakfast!'
 
-            print(meal)
-                                    </code></pre>
+print(meal)
+                    </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            food_items = ['spam', 'sausage', 'eggs', 'bacon', 'toutons']
+food_items = ['spam', 'sausage', 'eggs', 'bacon', 'toutons']
 
 
-            meal = 'I ate: {0} for breakfast!'
+meal = 'I ate: {0} for breakfast!'
 
 
-            print(meal.format(', '.join(food_items)))
+print(meal.format(', '.join(food_items)))
 
 
-                                    </code></pre>
+                    </code></pre>
                 </section>
                 <section>
                     <h3>Example - Multi-Line Strings</h3>
@@ -1240,7 +1238,7 @@
 
 
 
-                                    </code></pre>
+                    </code></pre>
                 </section>
             </section>
             <section>
@@ -1251,21 +1249,21 @@
                 <section>
                     <h3>Example - <code>deque</code></h3>
                     <pre style="position: absolute"><code class="hljs python" contenteditable>
-            names = ['sally', 'ann', 'jimmy', 'bobby']
+    names = ['sally', 'ann', 'jimmy', 'bobby']
 
-            # VERY SLOW - Need to shift everything in the list around
-            del names[0]
-            names.pop(0)
-            names.insert(0, 'sue')
+    # VERY SLOW - Need to shift everything in the list around
+    del names[0]
+    names.pop(0)
+    names.insert(0, 'sue')
                                     </code></pre>
-                    <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>from collections import deque
-            names = deque(['sally', 'ann', 'jimmy', 'bobby'])
+                    <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>    from collections import deque
+    names = deque(['sally', 'ann', 'jimmy', 'bobby'])
 
-            # O(1) time! 🔥 - Double ended queue to the rescue!
-            del names[0]
-            names.pop(0)
-            names.insert(0, 'sue')
-                                    </code></pre>
+    # O(1) time! 🔥 - Double ended queue to the rescue!
+    del names[0]
+    names.pop(0)
+    names.insert(0, 'sue')
+                            </code></pre>
                 </section>
             </section>
             <section>
@@ -1281,24 +1279,24 @@
 
 
 
-            def get_url(url, cache={}):
-                if url in cache:
-                    return cache[url]
+def get_url(url, cache={}):
+    if url in cache:
+        return cache[url]
 
-                with urllib.request.urlopen(url) as response:
-                    page = response.read()
+    with urllib.request.urlopen(url) as response:
+        page = response.read()
 
-                cache[url] = page
+    cache[url] = page
 
-                return page
+    return page
                                     </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>import urllib.request
-            from decorators import cache
+from decorators import cache
 
-            @cache
-            def get_url(url):
-                with urllib.request.urlopen(url) as response:
-                    return response.read()
+@cache
+def get_url(url):
+    with urllib.request.urlopen(url) as response:
+        return response.read()
 
 
 
@@ -1309,18 +1307,18 @@
                                     </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>from functools import wraps
 
-            def cache(func):
-                cache = {}
+def cache(func):
+    cache = {}
 
-                @wraps(func)
-                def wrapped_func(*args):
-                    if args in cache:
-                        return cache[args]
-                    result = func(*args)
-                    saved[args] = result
-                    return result
+    @wraps(func)
+    def wrapped_func(*args):
+        if args in cache:
+            return cache[args]
+        result = func(*args)
+        saved[args] = result
+        return result
 
-                return wrapped_func
+    return wrapped_func
 
                                     </code></pre>
                 </section>
@@ -1353,21 +1351,21 @@
                 <section>
                     <h3>Example - Locks</h3>
                     <pre style="position: absolute"><code class="hljs python" contenteditable>import threading
-            lock = threading.lock()
+lock = threading.lock()
 
-            lock.acquire()
-            try:
-                print('Critical Section 1')
-                print('Critical Section 2')
-            finally:
-                lock.release()
+lock.acquire()
+try:
+    print('Critical Section 1')
+    print('Critical Section 2')
+finally:
+    lock.release()
                                     </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>
-            lock = threading.lock()
+lock = threading.lock()
 
-            with lock:
-                print('Critical Section 1')
-                print('Critical Section 2')
+with lock:
+    print('Critical Section 1')
+    print('Critical Section 2')
 
 
                                     </code></pre>
@@ -1377,16 +1375,16 @@
                     <h3>Example - <em>Explicitly</em> Silence Exceptions</h3>
                     <pre style="position: absolute"><code class="hljs python" contenteditable>import os
 
-            try:
-                os.remove('file.png')
-            except OSError:
-                pass
+try:
+    os.remove('file.png')
+except OSError:
+    pass
                                     </code></pre>
                     <pre style="position: absolute" class="fragment fade-in"><code class="hljs python" contenteditable>import os
-            from contextlib import suppress
+from contextlib import suppress
 
-            with suppress(OSError):
-                os.remove('file.png')
+with suppress(OSError):
+    os.remove('file.png')
 
                                     </code></pre>
                 </section>
